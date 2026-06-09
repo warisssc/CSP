@@ -119,7 +119,7 @@
         .data-card.success { border-left-color: var(--biodiversity-green); }
         .data-card h4 { margin-bottom: 0.5rem; font-size: 1.1rem; }
 
-        /* Model Presentation Box - REVISED FOR BIODIVERSITY */
+        /* Model Presentation Box */
         .model-showcase {
             background: var(--biodiversity-green);
             color: var(--white);
@@ -145,6 +145,32 @@
             padding: 2rem;
         }
 
+        /* Flowchart Styling */
+        .flowchart {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 8px;
+            font-family: monospace;
+            white-space: pre;
+            overflow-x: auto;
+            color: var(--white);
+            text-align: center;
+            margin: 2rem 0;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        /* References Section */
+        .references {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-top: 3px solid var(--border-gray);
+            margin-top: 3rem;
+            font-size: 0.85rem;
+        }
+        .references h3 { color: var(--text-main); margin-top: 0; }
+        .references ol { padding-left: 1.5rem; margin-top: 1rem; }
+        .references li { margin-bottom: 0.5rem; word-break: break-all; }
+
         /* Risk Assessment Box */
         .risk-box {
             border: 2px solid var(--alert-red);
@@ -162,7 +188,6 @@
             color: var(--white);
             text-align: center;
             padding: 2rem;
-            margin-top: 3rem;
         }
 
         /* Responsive */
@@ -189,7 +214,8 @@
         <a href="#context">Current Crisis</a>
         <a href="#forecast">2050 Forecast</a>
         <a href="#doughnut">Doughnut Framework</a>
-        <a href="#solution-compost">Proposed Solutions</a>
+        <a href="#solution-hub">Proposed Solutions</a>
+        <a href="#references">Sources</a>
     </nav>
 
     <div class="container">
@@ -197,7 +223,7 @@
         <!-- SECTION: CURRENT CRISIS -->
         <section id="context">
             <h2>The Current State of Bangkok</h2>
-            <p>Bangkok generates over <strong>4 million tonnes of waste annually</strong>. Beyond the methane emitted from landfills, one of the most critical failures of our current system is ecological leakage. Plastic pollution and toxic runoff are actively destroying aquatic ecosystems, threatening local wildlife, and eventually reaching the ocean via the Chao Phraya River.</p>
+            <p>Bangkok generates over 4 million tonnes of waste annually. Beyond the methane emitted from landfills, one of the most critical failures of our current system is ecological leakage. Plastic pollution and toxic runoff are actively destroying aquatic ecosystems, threatening local wildlife, and eventually reaching the ocean via the Chao Phraya River.</p>
             
             <div class="grid-3" style="margin-top: 2rem;">
                 <div class="data-card alert">
@@ -206,11 +232,11 @@
                 </div>
                 <div class="data-card alert">
                     <h4>Food Chain Contamination</h4>
-                    <p>As plastics break down in the khlongs (canals) and the Chao Phraya, microplastics enter the local fish stocks and water supply, directly threatening Bangkok's access to safe, nutritious food.</p>
+                    <p>As plastics break down in the khlongs and the Chao Phraya, microplastics threaten aquatic life. High volumes of organic waste and mixed garbage increase costs and make sustainable waste management difficult.</p>
                 </div>
                 <div class="data-card">
                     <h4>Social Gaps</h4>
-                    <p>Despite community river-cleaning projects, the sheer volume of waste overwhelms local efforts. We lack physical infrastructure that actively protects these habitats from daily urban runoff.</p>
+                    <p>Thai people are not educated on what recycling is and how to recycle. Government directions are not being properly followed by companies, and most separated bins can not be found in the streets.</p>
                 </div>
             </div>
         </section>
@@ -224,14 +250,14 @@
                 <div>
                     <h3>Business-as-Usual Trajectory</h3>
                     <ul>
-                        <li><strong>Volume Increase:</strong> Municipal solid waste will grow to <strong>39.61 million tons by 2050</strong>.</li>
-                        <li><strong>Habitat Destruction:</strong> Global plastic generation is expected to rise 55% by 2050. Without intervention, Bangkok's remaining aquatic habitats will be entirely displaced by synthetic waste.</li>
-                        <li><strong>Emission Surge:</strong> Urban waste emissions will reach 19.9 million tons of CO2 equivalent over the next 25 years.</li>
+                        <li><strong>Volume Increase:</strong> Municipal solid waste is projected to grow at 1.15% annually, reaching 39.61 million tons by 2050.</li>
+                        <li><strong>Habitat Destruction:</strong> Global plastic generation is expected to rise from 380 million tons in 2022 to roughly 590 million tons by 2050.</li>
+                        <li><strong>Emission Surge:</strong> Urban waste emissions in Thailand are projected to be 19.9 million tons of CO2 equivalent over the next 25 years.</li>
                     </ul>
                 </div>
                 <div class="data-card success" style="display: flex; flex-direction: column; justify-content: center;">
                     <h4>The Mitigation Target</h4>
-                    <p>By shifting from passive waste management to <strong>active ecological defense</strong>, we can stop waste at the source. Preventing plastic from entering waterways allows natural habitats to regenerate and drastically reduces the toxic load on our food chain.</p>
+                    <p>By transitioning from open landfills to strict mandatory source-separation of organic and biodegradable waste, models show Bangkok can bring waste emissions down to 4.6 million tons.</p>
                 </div>
             </div>
         </section>
@@ -243,74 +269,117 @@
 
             <div class="grid-2" style="margin-top: 2rem;">
                 <div class="data-card success">
-                    <h4>MAIN FOCUS: Natural Habitats & Biodiversity</h4>
-                    <p>To stay within our Ecological Ceiling, we must halt the degradation of Bangkok's waterways. Our proposed models serve as physical barriers against pollution and restorative frameworks, preventing urban waste from leaking into sensitive aquatic and terrestrial habitats.</p>
+                    <h4>Ecological Ceiling: Natural Habitats & Biodiversity</h4>
+                    <p>Poor waste management damages habitats through landfill expansion, plastic pollution, and contaminated waterways. Our model decreases pollution, protects natural habitats, and reduces harm to biodiversity by preventing plastics from entering ecosystems where they destroy wildlife.</p>
                 </div>
                 <div class="data-card">
                     <h4>Social Foundation: Access to Nutritious Food</h4>
-                    <p>By transforming organic waste into usable fertilizer and physically removing plastics from the water supply, we protect local agricultural yields and fisheries. Keeping microplastics out of the local food chain is essential to ensuring affordable, unpolluted, and nutritious food for Bangkok's residents.</p>
+                    <p>Through our model, edible surplus food from households, supermarkets, and restaurants is redistributed to communities in need, improving access to affordable and nutritious food rather than being discarded.</p>
                 </div>
             </div>
         </section>
 
-        <!-- SECTION: SOLUTION 1 (COMPOSTING) -->
-        <section id="solution-compost" class="model-showcase" style="background: var(--biodiversity-green);">
-            <h2 style="font-size: 2.5rem; text-transform: uppercase; border-bottom: 4px solid var(--white);">Solution 1: Decentralized Urban Composting Hubs</h2>
-            <p style="font-size: 1.1rem; margin-bottom: 2rem;">To directly address the high volume of organic waste, Team 24 proposes an automated, community-scale composting model that transforms food waste into vital agricultural resources.</p>
+        <!-- SECTION: SOLUTION 1 (CIRCULAR HUB) -->
+        <section id="solution-hub" class="model-showcase" style="background: var(--biodiversity-green);">
+            <h2 style="font-size: 2.5rem; text-transform: uppercase; border-bottom: 4px solid var(--white);">Solution 1: Circular Food & Waste Hubs</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 2rem;">To create a sustainable waste-to-resource circular economy, Team 24 proposes creating Circular Food & Waste Hubs in Bangkok that collect waste directly from markets and households.</p>
 
             <!-- IMAGE PLACEHOLDER -->
             <div class="model-image-placeholder">
                 <div>
-                    [ Insert Image of Composting Model Here ] <br><br>
-                    <span style="font-size: 0.9rem;">(Ensure the photo clearly shows the organic waste processing mechanism)</span>
+                    [ Insert Image of the Circular Food & Waste Hub Model Here ] <br><br>
+                    <span style="font-size: 0.9rem;">(Ensure the photo clearly shows the organic waste processing and food recovery elements)</span>
                 </div>
             </div>
 
             <div class="grid-2">
                 <div>
                     <h3>What It Does</h3>
-                    <p>This system intercepts organic and biodegradable waste before it enters municipal collection. By rapidly decomposing food waste at the community level, it produces high-yield, nutrient-rich compost that can be used for local urban agriculture, directly supporting Bangkok's access to <strong>affordable and nutritious food</strong> while eliminating methane emissions from rotting landfill waste.</p>
+                    <p>The hub serves to educate people on the effects of waste management on the community. It actively intercepts waste, converting organic material into compost while redistributing edible surplus food to food banks, helping meet people's needs while staying within environmental limits.</p>
                 </div>
                 <div>
                     <h3>How It Works</h3>
-                    <p>Using aerobic decomposition chambers equipped with passive aeration and moisture balancing, the model accelerates the breakdown of organics. It features a sealed, pest-proof entry port and a rotational drum mechanism that users or community caretakers can easily operate to mix the compost and maintain optimal oxygen levels.</p>
+                    <div class="flowchart">
+Waste Generation
+       ↓
+Waste Separation
+       ↓
+ ┌─────────────┬─────────────┐
+ ↓             ↓             ↓
+Edible Food  Organic Waste  Recyclables
+ ↓             ↓             ↓
+Food Banks   Compost/Biogas Recycling
+ ↓             ↓             ↓
+Better Food  Sustainable    Less Pollution
+Access       Agriculture    & Habitat Loss
+       ↓             ↓             ↓
+  Social Foundation + Ecological Ceiling
+                    </div>
                 </div>
             </div>
 
             <div class="risk-box" style="background: rgba(0, 0, 0, 0.2); border-color: var(--white); margin-top: 3rem;">
                 <h3 style="color: var(--white);">⚠️ System Downside & Maintenance Constraints</h3>
-                <p style="color: var(--white);">The primary downside is odor and pest management if the carbon-to-nitrogen ratio is not perfectly maintained by the community. Furthermore, it requires strict behavioral compliance; if non-organic waste (like plastic) contaminates the composting chamber, the resulting fertilizer will be unusable for food crops.</p>
+                <p style="color: var(--white);">The primary downside is odor and pest management if the carbon-to-nitrogen ratio is not perfectly maintained by the community in the composting sector. Furthermore, it requires strict behavioral compliance; if non-organic waste contaminates the composting chamber, the resulting fertilizer will be unusable for food crops.</p>
             </div>
         </section>
 
-        <!-- SECTION: SOLUTION 2 (RECYCLING/LANDFILL REDUCTION) -->
+        <!-- SECTION: SOLUTION 2 (RECYCLING TO URBAN FARMING) -->
         <section id="solution-recycle" class="model-showcase" style="background: var(--gov-blue);">
-            <h2 style="font-size: 2.5rem; text-transform: uppercase; border-bottom: 4px solid var(--sustain-green);">Solution 2: Closed-Loop Recycling & Landfill Diversion</h2>
-            <p style="font-size: 1.1rem; margin-bottom: 2rem;">To aggressively tackle Bangkok's landfill dependency and prevent ecological leakage, we propose a localized, closed-loop dry waste sorting and compaction model.</p>
+            <h2 style="font-size: 2.5rem; text-transform: uppercase; border-bottom: 4px solid var(--sustain-green);">Solution 2: Plastic to Urban Farming Infrastructure</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 2rem;">To aggressively tackle Bangkok's landfill dependency and prevent ecological leakage, we propose a closed-loop dry waste recycling system that directly supports local food growth.</p>
 
             <!-- IMAGE PLACEHOLDER -->
             <div class="model-image-placeholder">
                 <div>
                     [ Insert Image of Recycling/Sorting Model Here ] <br><br>
-                    <span style="font-size: 0.9rem;">(Ensure the photo shows the sorting or compaction features)</span>
+                    <span style="font-size: 0.9rem;">(Ensure the photo shows the plastic sorting or urban farming infrastructure)</span>
                 </div>
             </div>
 
             <div class="grid-2">
                 <div>
                     <h3>What It Does</h3>
-                    <p>This infrastructure physically prevents plastic, glass, and metal from reaching open landfills or waterways. By sorting and compacting dry recyclables at the source, it prepares materials for direct sale to recycling plants. This drastically reduces the total mass sent to landfills and protects local <strong>Natural Habitats</strong> from plastic suffocation and microplastic leakage.</p>
+                    <p>This infrastructure physically prevents plastic from reaching open landfills or waterways. By sorting recyclables at the source, the hub recycles plastic into urban farming infrastructure. This drastically reduces the total mass sent to landfills and protects local habitats.</p>
                 </div>
                 <div>
                     <h3>How It Works</h3>
-                    <p>The system utilizes standardized, color-coded drop-off points linked to a localized compaction press. Once materials are deposited, a mechanical press reduces the volume of plastics and aluminum, maximizing storage efficiency until collection. This acts as a hyper-local transfer station, bridging the gap between household waste generation and formal recycling facilities.</p>
+                    <p>The system utilizes standardized drop-off points. Once materials are collected, recycled plastics are reformed into structural elements for community gardens and rooftop farms. By pairing this with the compost generated in Solution 1, the infrastructure creates a closed loop used to grow affordable, nutritious food directly in the city.</p>
                 </div>
             </div>
 
             <div class="risk-box" style="background: rgba(0, 0, 0, 0.2); border-color: var(--alert-red); margin-top: 3rem;">
                 <h3 style="color: #FF8A8A;">⚠️ System Downside & Maintenance Constraints</h3>
-                <p style="color: var(--white);">The major constraint is the initial manufacturing and installation cost of the sorting and compaction units. Additionally, the system relies heavily on users pre-washing their plastics; heavily soiled food containers can contaminate the entire batch, attract pests, and ultimately reduce the economic value of the recycled materials.</p>
+                <p style="color: var(--white);">The major constraint is the initial manufacturing cost of the sorting and processing units. Additionally, the system relies heavily on users pre-washing their plastics; heavily soiled containers can contaminate the batch, attract pests, and halt the production of the urban farming infrastructure.</p>
             </div>
+        </section>
+
+        <!-- SECTION: REFERENCES -->
+        <section id="references" class="references">
+            <h3>References & Research Sources</h3>
+            <p>The data and modeling presented in this proposal are supported by the following sources:</p>
+            <ol>
+                <li>Mahanakorn Partners Group. "Smart Cities in Thailand." <a href="https://mahanakornpartners.com/smart-cities-in-thailand/">Link</a></li>
+                <li>The Circulate Initiative. "City Waste Management Profile: Bangkok, Thailand." <a href="https://www.thecirculateinitiative.org/wp-content/uploads/City-Waste-Management-Profile-Bangkok-Thailand.pdf">Link</a></li>
+                <li>Bangkok Metropolitan Administration. "Bangkok Waste & Wastewater Action Plan 2025-2030." <a href="https://climatechange.bangkok.go.th/ccs-blog/wp-content/uploads/2025/11/Bangkok-Waste_Wastewater-Action-Plan2025-2030_ENG.pdf">Link</a></li>
+                <li>Stockholm Environment Institute (SEI). "Labour, waste and the circular economy in Bangkok." <a href="https://www.sei.org/publications/labour-waste-and-the-circular-economy-in-bangkok/">Link</a></li>
+                <li>ScienceDirect. Waste generation, separation, and treatment capacity challenges. <a href="https://www.sciencedirect.com/science/article/pii/S2665972726001625">Link</a></li>
+                <li>SpringerLink. "Forecasting waste in Thailand via Grey Model." <a href="https://link.springer.com/article/10.1007/s41748-022-00323-z">Link</a></li>
+                <li>Engineering, Technology & Applied Science Research. "Modeling Thailand's Municipal Solid Waste." <a href="https://etasr.com/index.php/ETASR/article/view/18107">Link</a></li>
+                <li>ResearchGate. "Greenhouse Gas Mitigation and Energy Production Potentials from Municipal Solid Waste Management in Thailand Through 2050." <a href="https://www.researchgate.net/publication/361970362_Greenhouse_Gas_Mitigation_and_Energy_Production_Potentials_from_Municipal_Solid_Waste_Management_in_Thailand_Through_2050">Link</a></li>
+                <li>Chulalongkorn University. GHG emissions in Bangkok's waste metabolism. <a href="https://digital.car.chula.ac.th/chulaetd/17297/">Link</a></li>
+                <li>ScienceDirect. "Global plastic generation predictions through 2050." <a href="https://www.sciencedirect.com/science/article/abs/pii/S0957582024009844m">Link</a></li>
+                <li>Thailand Board of Investment. "National Solid Waste Management Plan (2022-2027)." <a href="https://www.boi.go.th/upload/content/National%20Solid%20Waste%20Management%20Plan-Thailand.pdf">Link</a></li>
+                <li>The Nation Thailand. "No Mixed Waste: Separate Waste, Reduce Fees." <a href="https://www.nationthailand.com/thailand/bangkok/40046877">Link</a></li>
+                <li>The Nation Thailand. "BKK Waste Pay Application." <a href="https://www.nationthailand.com/thailand/bangkok/40046877">Link</a></li>
+                <li>The Nation Thailand. "Nong Khaem Waste Management Center." <a href="https://www.nationthailand.com/thailand/bangkok/40046746">Link</a></li>
+                <li>CP Axtra. "MOU with BMA on Food Waste Reduction." <a href="https://www.cpaxtra.com/en/newsroom/news/546/cp-axtra-joins-forces-for-sustainability-targeting-for-net-zero-by-2050-signs-mou-with-bangkok-metropolitan-administration-bma-on-food-waste-reduction-to-mark-world-environment-day">Link</a></li>
+                <li>Earth5R. "Waste Management Solutions in India." <a href="https://earth5r.org/waste-management-india-solutions/">Link</a></li>
+                <li>Anadolu Agency. "How South Korea won the battle against food waste." <a href="https://www.aa.com.tr/en/asia-pacific/how-south-korea-won-the-battle-against-food-waste/3225193">Link</a></li>
+                <li>Times of India. "Swachh Bharat Mission: Waste management initiatives." <a href="https://timesofindia.indiatimes.com/city/vijayawada/swachh-bharat-mission-team-in-guntur-to-study-gmcs-waste-management-initiatives/articleshow/123951126.cms">Link</a></li>
+                <li>OECD. "Regional Plastics Outlook for Southeast and East Asia." <a href="https://www.oecd.org/content/dam/oecd/en/publications/reports/2025/07/regional-plastics-outlook-for-southeast-and-east-asia_2e7d80a6/5a8ff43c-en.pdf">Link</a></li>
+                <li>U.S. EPA. "National Recycling Strategy." <a href="https://www.epa.gov/circulareconomy/national-recycling-strategy">Link</a></li>
+            </ol>
         </section>
 
     </div>
