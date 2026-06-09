@@ -460,6 +460,138 @@
 
         </div> <!-- END SIDE-BY-SIDE SOLUTIONS WRAPPER -->
 
+        <!-- MINI-GAME SECTION -->
+        <div id="game-container" style="background: var(--brand-beige); padding: 4rem 2rem; margin: 4rem 0; border: 1px solid #EAEAEA; text-align: center;">
+            <h2 style="font-family: var(--font-serif); font-size: 2.2rem; color: var(--text-main); margin-bottom: 1rem;">Mini-Game: Sort the Waste!</h2>
+            <p style="font-size: 1rem; color: var(--text-light); max-width: 600px; margin: 0 auto 2rem auto;">
+                Can you power our Circular Recycling Hub? Use your mouse or finger to move the bin. Catch the plastic to recycle it into urban farming gear! Avoid the organic food waste—that belongs in the compost hub!
+            </p>
+            
+            <!-- Game Canvas -->
+            <canvas id="wasteGame" width="400" height="400" style="background: white; border: 2px solid var(--brand-burgundy); box-shadow: 0 10px 20px rgba(0,0,0,0.05); cursor: none; touch-action: none; display: block; margin: 0 auto;"></canvas>
+            
+            <p id="scoreBoard" style="font-family: var(--font-sans); font-weight: 600; font-size: 1.5rem; color: var(--brand-burgundy); margin-top: 1.5rem;">Score: 0</p>
+            
+            <button onclick="startGame()" style="background-color: var(--brand-burgundy); color: var(--white); border: none; padding: 12px 24px; font-family: var(--font-sans); font-weight: 600; font-size: 1rem; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; margin-top: 1rem; transition: background 0.3s;">
+                Play / Restart
+            </button>
+
+            <!-- Game Logic Script -->
+            <script>
+                const canvas = document.getElementById("wasteGame");
+                const ctx = canvas.getContext("2d");
+                let score = 0;
+                let gameActive = false;
+
+                // Player (The Recycling Bin)
+                let bin = { x: 170, y: 340, w: 60, h: 60 };
+
+                // Falling Waste Items
+                let items = [];
+                const itemTypes = [
+                    { type: "plastic", emoji: "🥤", points: 10 },
+                    { type: "plastic", emoji: "🧴", points: 10 },
+                    { type: "compost", emoji: "🍎", points: -20 }, // Deducts points!
+                    { type: "compost", emoji: "🍌", points: -20 }  // Deducts points!
+                ];
+
+                // Controls (Mouse and Touch)
+                canvas.addEventListener("mousemove", function(e) {
+                    let rect = canvas.getBoundingClientRect();
+                    bin.x = e.clientX - rect.left - (bin.w / 2);
+                    if (bin.x < 0) bin.x = 0;
+                    if (bin.x + bin.w > canvas.width) bin.x = canvas.width - bin.w;
+                });
+
+                canvas.addEventListener("touchmove", function(e) {
+                    e.preventDefault(); // Prevents page scrolling while playing
+                    let rect = canvas.getBoundingClientRect();
+                    bin.x = e.touches[0].clientX - rect.left - (bin.w / 2);
+                    if (bin.x < 0) bin.x = 0;
+                    if (bin.x + bin.w > canvas.width) bin.x = canvas.width - bin.w;
+                }, {passive: false});
+
+                function spawnItem() {
+                    let randomType = itemTypes[Math.floor(Math.random() * itemTypes.length)];
+                    items.push({
+                        x: Math.random() * (canvas.width - 30),
+                        y: -30,
+                        size: 30,
+                        emoji: randomType.emoji,
+                        points: randomType.points,
+                        speed: 2 + Math.random() * 3 // Random falling speed
+                    });
+                }
+
+                function update() {
+                    if (!gameActive) return;
+
+                    // Clear the canvas every frame
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                    // Draw the Bin
+                    ctx.fillStyle = "#741724"; // Burgundy
+                    ctx.fillRect(bin.x, bin.y, bin.w, bin.h);
+                    ctx.fillStyle = "white";
+                    ctx.font = "24px Arial";
+                    ctx.fillText("♻️", bin.x + 15, bin.y + 40);
+
+                    // Random chance to spawn a new piece of trash
+                    if (Math.random() < 0.04) spawnItem();
+
+                    // Move and Draw the Trash
+                    for (let i = 0; i < items.length; i++) {
+                        let item = items[i];
+                        item.y += item.speed; // Move it down
+                        
+                        ctx.font = "30px Arial";
+                        ctx.fillText(item.emoji, item.x, item.y);
+
+                        // Collision Detection (Did the bin catch it?)
+                        if (item.y + item.size > bin.y && item.y < bin.y + bin.h &&
+                            item.x + item.size > bin.x && item.x < bin.x + bin.w) {
+                            
+                            score += item.points;
+                            document.getElementById("scoreBoard").innerText = "Score: " + score;
+                            items.splice(i, 1);
+                            i--;
+                            
+                            // Game Over if score drops below 0
+                            if (score < 0) {
+                                gameActive = false;
+                                ctx.fillStyle = "rgba(0, 0, 0, 0.8)";
+                                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                                ctx.fillStyle = "white";
+                                ctx.font = "20px Montserrat";
+                                ctx.fillText("Game Over! Too much food waste.", 40, 200);
+                                ctx.fillText("That belongs in the compost hub!", 40, 230);
+                            }
+                        } 
+                        // Remove item if it falls off the bottom of the screen
+                        else if (item.y > canvas.height) {
+                            items.splice(i, 1);
+                            i--;
+                        }
+                    }
+
+                    // Loop the game
+                    if (gameActive) {
+                        requestAnimationFrame(update);
+                    }
+                }
+
+                // Start the Game
+                function startGame() {
+                    score = 0;
+                    items = [];
+                    document.getElementById("scoreBoard").innerText = "Score: 0";
+                    gameActive = true;
+                    update();
+                }
+            </script>
+        </div>
+        <!-- END OF MINI-GAME SECTION -->
+
         <!-- SECTION: REFERENCES -->
         <section id="references" class="references">
             <h3>References & Research Sources</h3>
