@@ -348,6 +348,63 @@ Access       Agriculture    & Habitat Loss
                 </div>
             </div>
 
+            <!-- EXTERNALITIES GRAPH ANALYSIS -->
+            <div style="background: var(--bg-light); padding: 2rem; border-radius: 8px; margin: 2rem 0; border: 1px solid var(--border-gray); box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                <h3 style="text-align: center; color: var(--gov-blue); margin-top: 0;">Economic Impact: Internalizing the Cost of Plastic</h3>
+                <p style="font-size: 0.95rem; text-align: center; margin-bottom: 2rem; color: var(--text-main);">
+                    Our closed-loop system shifts the market away from the overproduction of waste (Qm) to the socially optimal point (Qopt), eliminating the deadweight loss (habitat destruction).
+                </p>
+
+                <!-- SVG GRAPH CODE -->
+                <svg viewBox="0 0 500 400" style="width: 100%; max-width: 600px; display: block; margin: 0 auto; background: white; border-radius: 4px; border: 1px solid #ddd;">
+                    <!-- Grid lines -->
+                    <line x1="50" y1="100" x2="450" y2="100" stroke="#f0f0f0" stroke-width="1"/>
+                    <line x1="50" y1="175" x2="450" y2="175" stroke="#f0f0f0" stroke-width="1"/>
+                    <line x1="50" y1="250" x2="450" y2="250" stroke="#f0f0f0" stroke-width="1"/>
+                    
+                    <!-- Deadweight Loss Triangle (Red Shaded Area) -->
+                    <polygon points="200,200 275,250 275,150" fill="rgba(179, 25, 66, 0.2)" stroke="#B31942" stroke-width="1" stroke-dasharray="4"/>
+                    <text x="245" y="205" font-size="12" fill="#B31942" font-weight="bold">DWL</text>
+                    <text x="285" y="200" font-size="10" fill="#B31942">(Habitat Loss)</text>
+
+                    <!-- Axes -->
+                    <line x1="50" y1="350" x2="480" y2="350" stroke="#333" stroke-width="2"/> <!-- X Axis -->
+                    <line x1="50" y1="350" x2="50" y2="20" stroke="#333" stroke-width="2"/>  <!-- Y Axis -->
+                    <text x="200" y="380" font-size="14" font-weight="bold" fill="#333">Quantity of Plastic Waste</text>
+                    <text x="15" y="220" font-size="14" font-weight="bold" fill="#333" transform="rotate(-90 15,220)">Costs / Benefits</text>
+
+                    <!-- Demand Curve (Marginal Private Benefit = Marginal Social Benefit) -->
+                    <line x1="100" y1="100" x2="350" y2="300" stroke="#2E8B57" stroke-width="3"/>
+                    <text x="360" y="305" font-size="12" font-weight="bold" fill="#2E8B57">MPB = MSB</text>
+
+                    <!-- Supply Curve 1 (Marginal Private Cost - Current State) -->
+                    <line x1="100" y1="350" x2="400" y2="175" stroke="#1C4E80" stroke-width="3"/>
+                    <text x="410" y="180" font-size="12" font-weight="bold" fill="#1C4E80">MPC</text>
+
+                    <!-- Supply Curve 2 (Marginal Social Cost - With Externalities) -->
+                    <line x1="100" y1="250" x2="400" y2="75" stroke="#B31942" stroke-width="3"/>
+                    <text x="410" y="80" font-size="12" font-weight="bold" fill="#B31942">MSC (MPC + External Cost)</text>
+
+                    <!-- Market Equilibrium Point (Qm) -->
+                    <circle cx="275" cy="250" r="5" fill="#1C4E80"/>
+                    <line x1="275" y1="250" x2="275" y2="350" stroke="#1C4E80" stroke-width="2" stroke-dasharray="5"/>
+                    <text x="265" y="370" font-size="14" font-weight="bold" fill="#1C4E80">Qm</text>
+
+                    <!-- Socially Optimal Equilibrium Point (Qopt) -->
+                    <circle cx="200" cy="200" r="5" fill="#B31942"/>
+                    <line x1="200" y1="200" x2="200" y2="350" stroke="#B31942" stroke-width="2" stroke-dasharray="5"/>
+                    <text x="185" y="370" font-size="14" font-weight="bold" fill="#B31942">Qopt</text>
+
+                    <!-- Arrow showing the shift -->
+                    <path d="M 260 340 L 220 340" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+                    <defs>
+                        <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                            <polygon points="0 0, 10 3.5, 0 7" fill="#333"/>
+                        </marker>
+                    </defs>
+                </svg>
+            </div>
+
             <div class="risk-box" style="background: rgba(0, 0, 0, 0.2); border-color: var(--alert-red); margin-top: 3rem;">
                 <h3 style="color: #FF8A8A;">⚠️ System Downside & Maintenance Constraints</h3>
                 <p style="color: var(--white);">The major constraint is the initial manufacturing cost of the sorting and processing units. Additionally, the system relies heavily on users pre-washing their plastics; heavily soiled containers can contaminate the batch, attract pests, and halt the production of the urban farming infrastructure.</p>
