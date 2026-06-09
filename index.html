@@ -351,26 +351,31 @@ Access       Agriculture    & Habitat Loss
             <!-- EXTERNALITIES GRAPH ANALYSIS -->
             <div style="background: var(--bg-light); padding: 2rem; border-radius: 8px; margin: 2rem 0; border: 1px solid var(--border-gray); box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
                 <h3 style="text-align: center; color: var(--gov-blue); margin-top: 0;">Economic Impact: Internalizing the Cost of Plastic</h3>
-                <p style="font-size: 0.95rem; text-align: center; margin-bottom: 2rem; color: var(--text-main);">
-                    Our closed-loop system shifts the market away from the overproduction of waste (Qm) to the socially optimal point (Qopt), eliminating the deadweight loss (habitat destruction).
+                
+                <p style="font-size: 0.95rem; margin-bottom: 1rem; color: var(--text-main);">
+                    <strong>Understanding the Negative Externality:</strong> A negative production externality occurs when the disposal of a good (like single-use plastic) creates indirect costs to society—such as habitat destruction and microplastic pollution in our waterways—that the waste generator does not pay for. Because the free market only considers the private costs of disposal (the Marginal Private Cost, or MPC), it overproduces plastic waste at an inefficiently high quantity (<strong>Qm</strong>).
+                </p>
+                
+                <p style="font-size: 0.95rem; margin-bottom: 2rem; color: var(--text-main);">
+                    <strong>The Solution:</strong> Our Closed-Loop Urban Farming Hub acts as a mechanism to internalize this external cost. By physically capturing the waste and assigning it immediate value as agricultural infrastructure, the system shifts the market away from the overproduction of waste to the socially optimal point (<strong>Qopt</strong>). This shift effectively eliminates the deadweight loss (the red shaded triangle), saving Bangkok's aquatic biodiversity from destruction.
                 </p>
 
                 <!-- SVG GRAPH CODE -->
-                <svg viewBox="0 0 500 400" style="width: 100%; max-width: 600px; display: block; margin: 0 auto; background: white; border-radius: 4px; border: 1px solid #ddd;">
+                <svg viewBox="0 0 600 420" style="width: 100%; max-width: 650px; display: block; margin: 0 auto; background: white; border-radius: 4px; border: 1px solid #ddd;">
                     <!-- Grid lines -->
-                    <line x1="50" y1="100" x2="450" y2="100" stroke="#f0f0f0" stroke-width="1"/>
-                    <line x1="50" y1="175" x2="450" y2="175" stroke="#f0f0f0" stroke-width="1"/>
-                    <line x1="50" y1="250" x2="450" y2="250" stroke="#f0f0f0" stroke-width="1"/>
+                    <line x1="50" y1="100" x2="550" y2="100" stroke="#f0f0f0" stroke-width="1"/>
+                    <line x1="50" y1="175" x2="550" y2="175" stroke="#f0f0f0" stroke-width="1"/>
+                    <line x1="50" y1="250" x2="550" y2="250" stroke="#f0f0f0" stroke-width="1"/>
                     
                     <!-- Deadweight Loss Triangle (Red Shaded Area) -->
                     <polygon points="200,200 275,250 275,150" fill="rgba(179, 25, 66, 0.2)" stroke="#B31942" stroke-width="1" stroke-dasharray="4"/>
-                    <text x="245" y="205" font-size="12" fill="#B31942" font-weight="bold">DWL</text>
-                    <text x="285" y="200" font-size="10" fill="#B31942">(Habitat Loss)</text>
+                    <text x="240" y="205" font-size="12" fill="#B31942" font-weight="bold">DWL</text>
+                    <text x="280" y="200" font-size="11" fill="#B31942">(Habitat Loss)</text>
 
                     <!-- Axes -->
-                    <line x1="50" y1="350" x2="480" y2="350" stroke="#333" stroke-width="2"/> <!-- X Axis -->
+                    <line x1="50" y1="350" x2="550" y2="350" stroke="#333" stroke-width="2"/> <!-- X Axis -->
                     <line x1="50" y1="350" x2="50" y2="20" stroke="#333" stroke-width="2"/>  <!-- Y Axis -->
-                    <text x="200" y="380" font-size="14" font-weight="bold" fill="#333">Quantity of Plastic Waste</text>
+                    <text x="220" y="400" font-size="14" font-weight="bold" fill="#333">Quantity of Plastic Waste</text>
                     <text x="15" y="220" font-size="14" font-weight="bold" fill="#333" transform="rotate(-90 15,220)">Costs / Benefits</text>
 
                     <!-- Demand Curve (Marginal Private Benefit = Marginal Social Benefit) -->
@@ -379,7 +384,7 @@ Access       Agriculture    & Habitat Loss
 
                     <!-- Supply Curve 1 (Marginal Private Cost - Current State) -->
                     <line x1="100" y1="350" x2="400" y2="175" stroke="#1C4E80" stroke-width="3"/>
-                    <text x="410" y="180" font-size="12" font-weight="bold" fill="#1C4E80">MPC</text>
+                    <text x="410" y="180" font-size="12" font-weight="bold" fill="#1C4E80">MPC (Private Cost)</text>
 
                     <!-- Supply Curve 2 (Marginal Social Cost - With Externalities) -->
                     <line x1="100" y1="250" x2="400" y2="75" stroke="#B31942" stroke-width="3"/>
