@@ -5,182 +5,252 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bangkok Vision 2051 | Strategic Waste & Biodiversity</title>
     <style>
-        /* CSS Variables for Government/Official Theme */
+        /* Import Wakami-style Fonts: Elegant Serif for Headings, Clean Sans-Serif for Body/Nav */
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;600&display=swap');
+
+        /* Wakami Brand Variables */
         :root {
-            --gov-blue: #0A3161;
-            --gov-light-blue: #1C4E80;
-            --sustain-green: #2E8B57;
-            --biodiversity-green: #1B5E20;
-            --alert-red: #B31942;
-            --bg-light: #F4F7F6;
+            --brand-burgundy: #741724;
+            --brand-beige: #F5F4F0;
             --text-main: #333333;
+            --text-light: #666666;
             --white: #FFFFFF;
-            --border-gray: #DDDDDD;
+            --font-serif: 'Playfair Display', Georgia, serif;
+            --font-sans: 'Montserrat', Helvetica, Arial, sans-serif;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
+            font-family: var(--font-sans);
+            font-weight: 300;
+            line-height: 1.8;
             color: var(--text-main);
-            background-color: var(--bg-light);
+            background-color: var(--white);
         }
 
-        /* Top Official Banner */
+        /* Top Official Banner (Matching the Burgundy Top Bar) */
         .top-banner {
-            background-color: var(--gov-blue);
+            background-color: var(--brand-burgundy);
             color: var(--white);
-            padding: 0.75rem 2rem;
-            font-size: 0.85rem;
+            padding: 8px 30px;
+            font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-family: var(--font-sans);
+            font-weight: 400;
         }
 
         .team-names {
             font-weight: 600;
-            color: #E0E0E0;
+            letter-spacing: 1px;
+        }
+
+        /* Hero Section (Matching the Image Banner) */
+        header {
+            /* Using a generic high-quality placeholder image with a dark overlay to mimic the photo in the SS */
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=2000&q=80') center/cover;
+            color: var(--white);
+            padding: 12rem 2rem;
+            text-align: center;
+            border-bottom: none;
+        }
+
+        header h1 { 
+            font-family: var(--font-serif); 
+            font-size: 3.8rem; 
+            font-weight: 400; 
+            margin-bottom: 1.5rem; 
+            letter-spacing: 0.5px;
+            line-height: 1.2;
+        }
+        
+        header p.subtitle { 
+            font-family: var(--font-sans); 
+            font-size: 1.1rem; 
+            font-weight: 400; 
+            max-width: 700px; 
+            margin: 0 auto; 
             letter-spacing: 0.5px;
         }
 
-        /* Hero Section */
-        header {
-            background: linear-gradient(135deg, var(--gov-blue) 0%, var(--biodiversity-green) 100%);
-            color: var(--white);
-            padding: 4rem 2rem;
-            text-align: center;
-            border-bottom: 5px solid var(--sustain-green);
-        }
-
-        header h1 { font-size: 2.8rem; margin-bottom: 1rem; }
-        header p.subtitle { font-size: 1.2rem; font-weight: 300; max-width: 800px; margin: 0 auto; }
-
-        /* Navigation */
+        /* Navigation (Matching the Beige Sub-Nav Band in the SS) */
         nav {
-            background-color: var(--white);
-            padding: 1rem 2rem;
-            border-bottom: 1px solid var(--border-gray);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            background-color: var(--brand-beige);
+            padding: 1.2rem 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            border-bottom: 1px solid #EBEBEB;
+            position: relative;
         }
         nav a {
-            color: var(--gov-blue);
+            color: var(--text-light);
             text-decoration: none;
-            margin-right: 1.5rem;
-            font-weight: 600;
+            font-size: 0.8rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: color 0.3s ease;
         }
-        nav a:hover { color: var(--sustain-green); }
+        nav a:hover { color: var(--text-main); }
 
         /* Main Container */
         .container {
-            max-width: 1200px;
-            margin: 2rem auto;
+            max-width: 1100px;
+            margin: 4rem auto;
             padding: 0 2rem;
         }
 
-        /* Section Styling */
+        /* Section Styling (Clean, airy, lots of whitespace) */
         section {
             background: var(--white);
-            padding: 2.5rem;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            padding: 3rem 0;
+            margin-bottom: 3rem;
         }
 
+        /* Headings */
         h2 {
-            color: var(--gov-blue);
-            font-size: 2rem;
-            border-bottom: 3px solid var(--sustain-green);
-            padding-bottom: 0.5rem;
-            margin-bottom: 1.5rem;
-            display: inline-block;
+            font-family: var(--font-serif);
+            color: var(--text-main);
+            font-size: 2.2rem;
+            font-weight: 400;
+            text-align: center;
+            margin-bottom: 2.5rem;
+            display: block;
+            border-bottom: none;
+            text-transform: none;
         }
 
-        h3 { color: var(--gov-light-blue); margin-top: 1.5rem; margin-bottom: 0.5rem; }
+        h3 { 
+            font-family: var(--font-sans); 
+            font-weight: 600; 
+            font-size: 0.95rem; 
+            text-transform: uppercase; 
+            letter-spacing: 1.5px; 
+            margin-top: 1.5rem; 
+            margin-bottom: 0.8rem; 
+            color: var(--text-main);
+        }
 
-        /* Grid Layouts for Data */
-        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
-        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+        /* Grid Layouts */
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
 
-        /* Data Cards */
+        /* Data Cards (Cleaned up to be minimalist blocks) */
         .data-card {
-            background: var(--bg-light);
-            border-left: 4px solid var(--gov-blue);
-            padding: 1.5rem;
-            border-radius: 4px;
+            background: var(--brand-beige);
+            padding: 2.5rem;
+            border-radius: 0;
+            border-left: none;
+            text-align: center;
         }
-        .data-card.alert { border-left-color: var(--alert-red); }
-        .data-card.success { border-left-color: var(--biodiversity-green); }
-        .data-card h4 { margin-bottom: 0.5rem; font-size: 1.1rem; }
-
-        /* Model Presentation Box */
-        .model-showcase {
-            background: var(--biodiversity-green);
-            color: var(--white);
-            padding: 3rem;
-            border-radius: 8px;
-            margin-top: 2rem;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        .data-card h4 { 
+            font-family: var(--font-sans);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem; 
+            font-size: 0.9rem; 
+            color: var(--text-main);
         }
-        .model-showcase h2 { color: var(--white); border-bottom-color: var(--white); }
-        .model-showcase p { color: #E0E0E0; }
+        .data-card p { font-size: 0.95rem; color: var(--text-light); }
         
+        /* Overriding Inline Styles for Model Showcase */
+        /* To keep your exact HTML structure intact, these !important tags safely override the old dark backgrounds */
+        .model-showcase {
+            background: var(--white) !important;
+            color: var(--text-main) !important;
+            padding: 4rem 0 !important;
+            margin-top: 4rem !important;
+            box-shadow: none !important;
+            border-top: 1px solid #EAEAEA;
+            border-radius: 0 !important;
+        }
+        .model-showcase h2 { 
+            color: var(--text-main) !important; 
+            border-bottom: none !important; 
+            text-transform: none !important;
+            font-size: 2.4rem !important;
+            font-family: var(--font-serif) !important;
+        }
+        .model-showcase p, .model-showcase h3 { color: var(--text-light) !important; }
+        .model-showcase h3 { color: var(--text-main) !important; }
+
+        .model-image-placeholder {
+            background-color: var(--brand-beige) !important;
+            border: none !important;
+            height: auto !important;
+            min-height: 200px;
+            padding: 3rem !important;
+            color: var(--text-light) !important;
+            border-radius: 0 !important;
+        }
+
         /* Flowchart Styling */
         .flowchart {
-            background: rgba(255,255,255,0.1);
+            background: var(--brand-beige) !important;
+            color: var(--text-light) !important;
             padding: 2rem;
-            border-radius: 8px;
             font-family: monospace;
-            white-space: pre;
-            overflow-x: auto;
-            color: var(--white);
-            text-align: center;
-            margin: 2rem 0;
-            border: 1px solid rgba(255,255,255,0.3);
-        }
-
-        /* References Section */
-        .references {
-            background: var(--bg-light);
-            padding: 2rem;
-            border-top: 3px solid var(--border-gray);
-            margin-top: 3rem;
             font-size: 0.85rem;
+            border: none !important;
+            border-radius: 0 !important;
         }
-        .references h3 { color: var(--text-main); margin-top: 0; }
-        .references ol { padding-left: 1.5rem; margin-top: 1rem; }
-        .references li { margin-bottom: 0.5rem; word-break: break-all; }
 
         /* Risk Assessment Box */
         .risk-box {
-            border: 2px solid var(--alert-red);
-            background-color: #FFF0F0;
-            padding: 2rem;
-            border-radius: 8px;
-            margin-top: 2rem;
+            border: 1px solid #EAEAEA !important;
+            background-color: var(--white) !important;
+            padding: 3rem !important;
+            border-radius: 0 !important;
+            margin-top: 4rem !important;
+            text-align: center;
         }
-        .risk-box h3 { color: var(--alert-red); margin-top: 0; display: flex; align-items: center; }
-        .risk-box h3::before { content: "⚠️"; margin-right: 10px; }
+        .risk-box h3 { 
+            color: var(--text-main) !important; 
+            justify-content: center;
+            font-family: var(--font-serif) !important;
+            text-transform: none !important;
+            font-size: 1.5rem !important;
+            letter-spacing: 0 !important;
+        }
+        .risk-box p { color: var(--text-light) !important; font-size: 0.95rem !important; }
+
+        /* References Section */
+        .references {
+            background: var(--white);
+            padding: 4rem 0;
+            border-top: 1px solid #EAEAEA;
+            margin-top: 4rem;
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+        .references h3 { font-family: var(--font-serif); font-size: 1.8rem; text-transform: none; text-align: center; margin-bottom: 2rem; }
+        .references ol { padding-left: 0; list-style-position: inside; }
+        .references li { margin-bottom: 0.8rem; word-break: break-all; }
+        .references a { color: var(--text-main); text-decoration: underline; }
 
         /* Footer */
         footer {
-            background-color: var(--text-main);
-            color: var(--white);
+            background-color: var(--brand-beige);
+            color: var(--text-light);
             text-align: center;
-            padding: 2rem;
+            padding: 4rem 2rem;
+            border-top: 1px solid #EAEAEA;
+            font-size: 0.9rem;
         }
+        footer strong { color: var(--text-main); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
 
         /* Responsive */
         @media(max-width: 768px) {
             .grid-2, .grid-3 { grid-template-columns: 1fr; }
-            header h1 { font-size: 2rem; }
-            .top-banner { flex-direction: column; text-align: center; gap: 0.5rem; }
+            header h1 { font-size: 2.2rem; }
+            .top-banner { flex-direction: column; text-align: center; gap: 0.5rem; padding: 15px; }
+            nav { flex-wrap: wrap; gap: 1rem; }
         }
     </style>
 </head>
@@ -206,11 +276,12 @@
 
     <div class="container">
 
+        <!-- SECTION: CURRENT CRISIS -->
         <section id="context">
             <h2>The Current State of Bangkok</h2>
-            <p>Bangkok generates over 4 million tonnes of waste annually. Beyond the methane emitted from landfills, one of the most critical failures of our current system is ecological leakage. Plastic pollution and toxic runoff are actively destroying aquatic ecosystems, threatening local wildlife, and eventually reaching the ocean via the Chao Phraya River.</p>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto;">Bangkok generates over 4 million tonnes of waste annually. Beyond the methane emitted from landfills, one of the most critical failures of our current system is ecological leakage. Plastic pollution and toxic runoff are actively destroying aquatic ecosystems, threatening local wildlife, and eventually reaching the ocean via the Chao Phraya River.</p>
             
-            <div class="grid-3" style="margin-top: 2rem;">
+            <div class="grid-3" style="margin-top: 4rem;">
                 <div class="data-card alert">
                     <h4>Ecological Leakage</h4>
                     <p>Thailand is identified globally as a major contributor to marine plastic. Plastic suffocates Bangkok's waterways, directly killing fish populations and destroying the habitats necessary for biodiversity to thrive.</p>
@@ -226,17 +297,18 @@
             </div>
         </section>
 
+        <!-- SECTION: FORECAST -->
         <section id="forecast">
             <h2>2050 Predictive Modeling</h2>
-            <p>Mathematical forecasting models predict a severe escalation of Bangkok's waste crisis if we maintain current habits.</p>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto;">Mathematical forecasting models predict a severe escalation of Bangkok's waste crisis if we maintain current habits.</p>
             
-            <div class="grid-2" style="margin-top: 2rem;">
+            <div class="grid-2" style="margin-top: 4rem;">
                 <div>
                     <h3>Business-as-Usual Trajectory</h3>
-                    <ul>
-                        <li><strong>Volume Increase:</strong> Municipal solid waste is projected to grow at 1.15% annually, reaching 39.61 million tons by 2050.</li>
-                        <li><strong>Habitat Destruction:</strong> Global plastic generation is expected to rise from 380 million tons in 2022 to roughly 590 million tons by 2050.</li>
-                        <li><strong>Emission Surge:</strong> Urban waste emissions in Thailand are projected to be 19.9 million tons of CO2 equivalent over the next 25 years.</li>
+                    <ul style="padding-left: 1.5rem; color: var(--text-light);">
+                        <li style="margin-bottom: 0.5rem;"><strong>Volume Increase:</strong> Municipal solid waste is projected to grow at 1.15% annually, reaching 39.61 million tons by 2050.</li>
+                        <li style="margin-bottom: 0.5rem;"><strong>Habitat Destruction:</strong> Global plastic generation is expected to rise from 380 million tons in 2022 to roughly 590 million tons by 2050.</li>
+                        <li style="margin-bottom: 0.5rem;"><strong>Emission Surge:</strong> Urban waste emissions in Thailand are projected to be 19.9 million tons of CO2 equivalent over the next 25 years.</li>
                     </ul>
                 </div>
                 <div class="data-card success" style="display: flex; flex-direction: column; justify-content: center;">
@@ -246,11 +318,12 @@
             </div>
         </section>
 
+        <!-- SECTION: DOUGHNUT MODEL -->
         <section id="doughnut">
             <h2>The Doughnut Economic Framework</h2>
-            <p>Our physical solution is engineered specifically to operate within the Doughnut Model, bridging the gap between ecological preservation and human needs.</p>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto;">Our physical solution is engineered specifically to operate within the Doughnut Model, bridging the gap between ecological preservation and human needs.</p>
 
-            <div class="grid-2" style="margin-top: 2rem;">
+            <div class="grid-2" style="margin-top: 4rem;">
                 <div class="data-card success">
                     <h4>Ecological Ceiling: Natural Habitats & Biodiversity</h4>
                     <p>Poor waste management damages habitats through landfill expansion, plastic pollution, and contaminated waterways. Our model decreases pollution, protects natural habitats, and reduces harm to biodiversity by preventing plastics from entering ecosystems where they destroy wildlife.</p>
@@ -262,9 +335,10 @@
             </div>
         </section>
 
+        <!-- SECTION: SOLUTION 1 (CIRCULAR HUB) -->
         <section id="solution-hub" class="model-showcase" style="background: var(--biodiversity-green);">
             <h2 style="font-size: 2.5rem; text-transform: uppercase; border-bottom: 4px solid var(--white);">Solution 1: Circular Food & Waste Hubs</h2>
-            <p style="font-size: 1.1rem; margin-bottom: 2rem;">To create a sustainable waste-to-resource circular economy, Team 24 proposes creating Circular Food & Waste Hubs in Bangkok that collect waste directly from markets and households.</p>
+            <p style="font-size: 1.1rem; margin-bottom: 3rem; text-align: center; max-width: 800px; margin-left: auto; margin-right: auto;">To create a sustainable waste-to-resource circular economy, Team 24 proposes creating Circular Food & Waste Hubs in Bangkok that collect waste directly from markets and households.</p>
 
             <div class="grid-2">
                 <div>
@@ -274,7 +348,8 @@
                 <div>
                     <h3>How It Works</h3>
                     <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 8px; text-align: center; border: 1px dashed rgba(255,255,255,0.4);">
-                        <img src="image.jpg" alt="Building Composer Diagram" style="width: 100%; max-width: 100%; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
+                        <!-- This is where your friend's drawing will automatically load -->
+                        <img src="image.jpg" alt="Building Composer Diagram" style="width: 100%; max-width: 100%; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
                         <p style="font-size: 0.85rem; font-style: italic; color: var(--white); margin-top: 0.5rem; margin-bottom: 0;">Building Composer Workflow</p>
                     </div>
                 </div>
@@ -286,9 +361,10 @@
             </div>
         </section>
 
+        <!-- SECTION: SOLUTION 2 (RECYCLING TO URBAN FARMING) -->
         <section id="solution-recycle" class="model-showcase" style="background: var(--gov-blue);">
             <h2 style="font-size: 2.5rem; text-transform: uppercase; border-bottom: 4px solid var(--sustain-green);">Solution 2: Plastic to Urban Farming Infrastructure</h2>
-            <p style="font-size: 1.1rem; margin-bottom: 2rem;">To aggressively tackle Bangkok's landfill dependency and prevent ecological leakage, we propose a closed-loop dry waste recycling system that directly supports local food growth.</p>
+            <p style="font-size: 1.1rem; margin-bottom: 3rem; text-align: center; max-width: 800px; margin-left: auto; margin-right: auto;">To aggressively tackle Bangkok's landfill dependency and prevent ecological leakage, we propose a closed-loop dry waste recycling system that directly supports local food growth.</p>
 
             <div class="grid-2">
                 <div>
@@ -301,43 +377,56 @@
                 </div>
             </div>
 
-            <div style="background: var(--bg-light); padding: 2rem; border-radius: 8px; margin: 2rem 0; border: 1px solid var(--border-gray); box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-                <h3 style="text-align: center; color: var(--gov-blue); margin-top: 0;">Economic Impact: Internalizing the Cost of Plastic</h3>
+            <!-- EXTERNALITIES GRAPH ANALYSIS -->
+            <div style="background: var(--white); padding: 3rem; border-radius: 0; margin: 4rem 0; border: 1px solid #EAEAEA;">
+                <h3 style="text-align: center; margin-top: 0; font-family: var(--font-serif); font-size: 1.8rem; text-transform: none;">Economic Impact: Internalizing the Cost of Plastic</h3>
                 
-                <p style="font-size: 0.95rem; margin-bottom: 2rem; color: var(--text-main); text-align: center;">
-                    <strong>The Market Failure:</strong> Currently, Bangkok suffers from a negative production externality where the social cost of plastic waste (habitat destruction) drastically exceeds the private cost, resulting in a large deadweight loss. By physically capturing waste and turning it into farming infrastructure, our closed-loop system internalizes this cost, shifting the market to a socially optimal equilibrium (<strong>Q<sub>opt</sub></strong>) and eliminating ecological damage.
+                <p style="font-size: 0.95rem; margin-bottom: 2rem; color: var(--text-light); text-align: center; max-width: 800px; margin-left: auto; margin-right: auto;">
+                    <strong style="color: var(--text-main);">The Market Failure:</strong> Currently, Bangkok suffers from a negative production externality where the social cost of plastic waste (habitat destruction) drastically exceeds the private cost, resulting in a large deadweight loss. By physically capturing waste and turning it into farming infrastructure, our closed-loop system internalizes this cost, shifting the market to a socially optimal equilibrium (<strong>Q<sub>opt</sub></strong>) and eliminating ecological damage.
                 </p>
 
-                <svg viewBox="0 0 600 420" style="width: 100%; max-width: 650px; display: block; margin: 0 auto; background: white; border-radius: 4px; border: 1px solid #ddd;">
+                <!-- SVG GRAPH CODE -->
+                <svg viewBox="0 0 600 420" style="width: 100%; max-width: 650px; display: block; margin: 0 auto; background: white;">
+                    <!-- Grid lines -->
                     <line x1="50" y1="100" x2="550" y2="100" stroke="#f0f0f0" stroke-width="1"/>
                     <line x1="50" y1="175" x2="550" y2="175" stroke="#f0f0f0" stroke-width="1"/>
                     <line x1="50" y1="250" x2="550" y2="250" stroke="#f0f0f0" stroke-width="1"/>
                     
-                    <polygon points="200,200 275,250 275,162.5" fill="rgba(179, 25, 66, 0.2)" stroke="#B31942" stroke-width="1" stroke-dasharray="4"/>
-                    <text x="235" y="210" font-size="12" fill="#B31942" font-weight="bold">DWL</text>
-                    <text x="285" y="200" font-size="11" fill="#B31942">(Habitat Loss)</text>
+                    <!-- Deadweight Loss Triangle (Red Shaded Area) -->
+                    <polygon points="200,200 275,250 275,162.5" fill="rgba(116, 23, 36, 0.1)" stroke="var(--brand-burgundy)" stroke-width="1" stroke-dasharray="4"/>
+                    <text x="235" y="210" font-size="12" fill="var(--brand-burgundy)" font-weight="bold">DWL</text>
+                    <text x="285" y="200" font-size="11" fill="var(--brand-burgundy)">(Habitat Loss)</text>
 
-                    <line x1="50" y1="350" x2="550" y2="350" stroke="#333" stroke-width="2"/> <line x1="50" y1="350" x2="50" y2="20" stroke="#333" stroke-width="2"/>  <text x="220" y="400" font-size="14" font-weight="bold" fill="#333">Quantity of Plastic Waste</text>
-                    <text x="15" y="220" font-size="14" font-weight="bold" fill="#333" transform="rotate(-90 15,220)">Costs / Benefits</text>
+                    <!-- Axes -->
+                    <line x1="50" y1="350" x2="550" y2="350" stroke="#333" stroke-width="1"/> <!-- X Axis -->
+                    <line x1="50" y1="350" x2="50" y2="20" stroke="#333" stroke-width="1"/>  <!-- Y Axis -->
+                    <text x="220" y="400" font-size="14" font-weight="400" font-family="Montserrat, sans-serif" fill="#333">Quantity of Plastic Waste</text>
+                    <text x="15" y="220" font-size="14" font-weight="400" font-family="Montserrat, sans-serif" fill="#333" transform="rotate(-90 15,220)">Costs / Benefits</text>
 
-                    <line x1="100" y1="133.3" x2="350" y2="300" stroke="#2E8B57" stroke-width="3"/>
-                    <text x="360" y="305" font-size="12" font-weight="bold" fill="#2E8B57">MPB = MSB</text>
+                    <!-- Demand Curve (Marginal Private Benefit = Marginal Social Benefit) -->
+                    <line x1="100" y1="133.3" x2="350" y2="300" stroke="#8E9E82" stroke-width="2"/>
+                    <text x="360" y="305" font-size="12" font-weight="600" font-family="Montserrat, sans-serif" fill="#8E9E82">MPB = MSB</text>
 
-                    <line x1="100" y1="337.5" x2="400" y2="187.5" stroke="#1C4E80" stroke-width="3"/>
-                    <text x="410" y="190" font-size="12" font-weight="bold" fill="#1C4E80">MPC (Private Cost)</text>
+                    <!-- Supply Curve 1 (Marginal Private Cost - Current State) -->
+                    <line x1="100" y1="337.5" x2="400" y2="187.5" stroke="#999" stroke-width="2"/>
+                    <text x="410" y="190" font-size="12" font-weight="600" font-family="Montserrat, sans-serif" fill="#999">MPC (Private Cost)</text>
 
-                    <line x1="100" y1="250" x2="400" y2="100" stroke="#B31942" stroke-width="3"/>
-                    <text x="410" y="105" font-size="12" font-weight="bold" fill="#B31942">MSC (MPC + External Cost)</text>
+                    <!-- Supply Curve 2 (Marginal Social Cost - With Externalities) -->
+                    <line x1="100" y1="250" x2="400" y2="100" stroke="var(--brand-burgundy)" stroke-width="2"/>
+                    <text x="410" y="105" font-size="12" font-weight="600" font-family="Montserrat, sans-serif" fill="var(--brand-burgundy)">MSC (MPC + External Cost)</text>
 
-                    <circle cx="275" cy="250" r="5" fill="#1C4E80"/>
-                    <line x1="275" y1="250" x2="275" y2="350" stroke="#1C4E80" stroke-width="2" stroke-dasharray="5"/>
-                    <text x="265" y="370" font-size="14" font-weight="bold" fill="#1C4E80">Qm</text>
+                    <!-- Market Equilibrium Point (Qm) -->
+                    <circle cx="275" cy="250" r="5" fill="#999"/>
+                    <line x1="275" y1="250" x2="275" y2="350" stroke="#999" stroke-width="1" stroke-dasharray="5"/>
+                    <text x="265" y="370" font-size="14" font-weight="600" font-family="Montserrat, sans-serif" fill="#999">Qm</text>
 
-                    <circle cx="200" cy="200" r="5" fill="#B31942"/>
-                    <line x1="200" y1="200" x2="200" y2="350" stroke="#B31942" stroke-width="2" stroke-dasharray="5"/>
-                    <text x="185" y="370" font-size="14" font-weight="bold" fill="#B31942">Qopt</text>
+                    <!-- Socially Optimal Equilibrium Point (Qopt) -->
+                    <circle cx="200" cy="200" r="5" fill="var(--brand-burgundy)"/>
+                    <line x1="200" y1="200" x2="200" y2="350" stroke="var(--brand-burgundy)" stroke-width="1" stroke-dasharray="5"/>
+                    <text x="185" y="370" font-size="14" font-weight="600" font-family="Montserrat, sans-serif" fill="var(--brand-burgundy)">Qopt</text>
 
-                    <path d="M 260 340 L 220 340" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+                    <!-- Arrow showing the shift -->
+                    <path d="M 260 340 L 220 340" stroke="#333" stroke-width="1.5" fill="none" marker-end="url(#arrowhead)"/>
                     <defs>
                         <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
                             <polygon points="0 0, 10 3.5, 0 7" fill="#333"/>
@@ -352,9 +441,10 @@
             </div>
         </section>
 
+        <!-- SECTION: REFERENCES -->
         <section id="references" class="references">
             <h3>References & Research Sources</h3>
-            <p>The data and modeling presented in this proposal are supported by the following sources:</p>
+            <p style="text-align: center; margin-bottom: 2rem;">The data and modeling presented in this proposal are supported by the following sources:</p>
             <ol>
                 <li>Mahanakorn Partners Group. "Smart Cities in Thailand." <a href="https://mahanakornpartners.com/smart-cities-in-thailand/">Link</a></li>
                 <li>The Circulate Initiative. "City Waste Management Profile: Bangkok, Thailand." <a href="https://www.thecirculateinitiative.org/wp-content/uploads/City-Waste-Management-Profile-Bangkok-Thailand.pdf">Link</a></li>
@@ -383,7 +473,7 @@
 
     <footer>
         <p><strong>2051 Bangkok Design Challenge | Team 24</strong></p>
-        <p style="font-size: 0.9rem; margin-top: 0.5rem; color: #aaa;">Teppo, Waris, Bella, Ying, Petra</p>
+        <p style="font-size: 0.9rem; margin-top: 0.5rem;">Teppo, Waris, Bella, Ying, Petra</p>
     </footer>
 
 </body>
