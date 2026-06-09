@@ -98,14 +98,14 @@
         }
         nav a:hover { color: var(--text-main); }
 
-        /* Main Container */
+        /* Main Container - Enlarged for Side-by-Side layout */
         .container {
-            max-width: 1100px;
+            max-width: 1400px; /* ENLARGED SIZE */
             margin: 4rem auto;
             padding: 0 2rem;
         }
 
-        /* Section Styling (Clean, airy, lots of whitespace) */
+        /* Section Styling */
         section {
             background: var(--white);
             padding: 3rem 0;
@@ -140,7 +140,7 @@
         .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
         .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
 
-        /* Data Cards (Cleaned up to be minimalist blocks) */
+        /* Data Cards */
         .data-card {
             background: var(--brand-beige);
             padding: 2.5rem;
@@ -159,55 +159,52 @@
         }
         .data-card p { font-size: 0.95rem; color: var(--text-light); }
         
-        /* Overriding Inline Styles for Model Showcase */
-        /* To keep your exact HTML structure intact, these !important tags safely override the old dark backgrounds */
+        /* --- SIDE-BY-SIDE SOLUTIONS WRAPPER --- */
+        .solutions-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 4rem;
+            align-items: start;
+        }
+
         .model-showcase {
             background: var(--white) !important;
             color: var(--text-main) !important;
-            padding: 4rem 0 !important;
-            margin-top: 4rem !important;
-            box-shadow: none !important;
-            border-top: 1px solid #EAEAEA;
+            padding: 3rem !important;
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04) !important;
+            border: 1px solid #EAEAEA;
             border-radius: 0 !important;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
         .model-showcase h2 { 
             color: var(--text-main) !important; 
             border-bottom: none !important; 
             text-transform: none !important;
-            font-size: 2.4rem !important;
+            font-size: 2.2rem !important;
             font-family: var(--font-serif) !important;
+            margin-bottom: 1.5rem !important;
         }
         .model-showcase p, .model-showcase h3 { color: var(--text-light) !important; }
-        .model-showcase h3 { color: var(--text-main) !important; }
+        .model-showcase h3 { color: var(--text-main) !important; margin-top: 0 !important;}
 
-        .model-image-placeholder {
-            background-color: var(--brand-beige) !important;
-            border: none !important;
-            height: auto !important;
-            min-height: 200px;
-            padding: 3rem !important;
-            color: var(--text-light) !important;
-            border-radius: 0 !important;
-        }
-
-        /* Flowchart Styling */
-        .flowchart {
-            background: var(--brand-beige) !important;
-            color: var(--text-light) !important;
-            padding: 2rem;
-            font-family: monospace;
-            font-size: 0.85rem;
-            border: none !important;
-            border-radius: 0 !important;
+        .solution-inner-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
         }
 
         /* Risk Assessment Box */
         .risk-box {
             border: 1px solid #EAEAEA !important;
             background-color: var(--white) !important;
-            padding: 3rem !important;
+            padding: 2.5rem !important;
             border-radius: 0 !important;
-            margin-top: 4rem !important;
+            margin-top: auto !important; /* Pushes it to the bottom of the column */
             text-align: center;
         }
         .risk-box h3 { 
@@ -215,10 +212,19 @@
             justify-content: center;
             font-family: var(--font-serif) !important;
             text-transform: none !important;
-            font-size: 1.5rem !important;
+            font-size: 1.3rem !important;
             letter-spacing: 0 !important;
         }
-        .risk-box p { color: var(--text-light) !important; font-size: 0.95rem !important; }
+        .risk-box p { color: var(--text-light) !important; font-size: 0.95rem !important; margin-bottom: 0 !important; }
+
+        /* Externalities Graph Box inside Solution 2 */
+        .graph-box {
+            background: var(--white);
+            padding: 2rem;
+            border: 1px solid #EAEAEA;
+            margin: 2rem 0;
+            text-align: center;
+        }
 
         /* References Section */
         .references {
@@ -228,6 +234,9 @@
             margin-top: 4rem;
             font-size: 0.85rem;
             color: var(--text-light);
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
         }
         .references h3 { font-family: var(--font-serif); font-size: 1.8rem; text-transform: none; text-align: center; margin-bottom: 2rem; }
         .references ol { padding-left: 0; list-style-position: inside; }
@@ -245,7 +254,10 @@
         }
         footer strong { color: var(--text-main); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* Responsive */
+        /* Responsive Breakpoints */
+        @media(max-width: 1024px) {
+            .solutions-wrapper { grid-template-columns: 1fr; }
+        }
         @media(max-width: 768px) {
             .grid-2, .grid-3 { grid-template-columns: 1fr; }
             header h1 { font-size: 2.2rem; }
@@ -270,7 +282,7 @@
         <a href="#context">Current Crisis</a>
         <a href="#forecast">2050 Forecast</a>
         <a href="#doughnut">Doughnut Framework</a>
-        <a href="#solution-hub">Proposed Solutions</a>
+        <a href="#proposed-solutions">Proposed Solutions</a>
         <a href="#references">Sources</a>
     </nav>
 
@@ -335,111 +347,118 @@
             </div>
         </section>
 
-        <!-- SECTION: SOLUTION 1 (CIRCULAR HUB) -->
-        <section id="solution-hub" class="model-showcase" style="background: var(--biodiversity-green);">
-            <h2 style="font-size: 2.5rem; text-transform: uppercase; border-bottom: 4px solid var(--white);">Solution 1: Circular Food & Waste Hubs</h2>
-            <p style="font-size: 1.1rem; margin-bottom: 3rem; text-align: center; max-width: 800px; margin-left: auto; margin-right: auto;">To create a sustainable waste-to-resource circular economy, Team 24 proposes creating Circular Food & Waste Hubs in Bangkok that collect waste directly from markets and households.</p>
+        <!-- ============================================== -->
+        <!-- SIDE-BY-SIDE SOLUTIONS WRAPPER                 -->
+        <!-- ============================================== -->
+        <div class="solutions-wrapper" id="proposed-solutions">
 
-            <div class="grid-2">
-                <div>
-                    <h3>What It Does</h3>
-                    <p>The hub serves to educate people on the effects of waste management on the community. It actively intercepts waste, converting organic material into compost while redistributing edible surplus food to food banks, helping meet people's needs while staying within environmental limits.</p>
-                </div>
-                <div>
-                    <h3>How It Works</h3>
-                    <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 8px; text-align: center; border: 1px dashed rgba(255,255,255,0.4);">
-                        <!-- This is where your friend's drawing will automatically load -->
-                        <img src="image.jpg" alt="Building Composer Diagram" style="width: 100%; max-width: 100%; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-                        <p style="font-size: 0.85rem; font-style: italic; color: var(--white); margin-top: 0.5rem; margin-bottom: 0;">Building Composer Workflow</p>
+            <!-- SOLUTION 1 (CIRCULAR HUB) -->
+            <section id="solution-hub" class="model-showcase">
+                <h2>Solution 1: Circular Food & Waste Hubs</h2>
+                <p style="font-size: 1.05rem; margin-bottom: 2.5rem; text-align: center;">To create a sustainable waste-to-resource circular economy, Team 24 proposes creating Circular Food & Waste Hubs in Bangkok that collect waste directly from markets and households.</p>
+
+                <div class="solution-inner-stack">
+                    <div>
+                        <h3>What It Does</h3>
+                        <p>The hub serves to educate people on the effects of waste management on the community. It actively intercepts waste, converting organic material into compost while redistributing edible surplus food to food banks, helping meet people's needs while staying within environmental limits.</p>
+                    </div>
+                    <div>
+                        <h3>How It Works</h3>
+                        <div style="background: var(--brand-beige); padding: 1.5rem; border-radius: 0; text-align: center; border: 1px solid #EAEAEA; margin-top: 0.5rem;">
+                            <!-- This is where your friend's drawing will automatically load -->
+                            <img src="image.jpg" alt="Building Composer Diagram" style="width: 100%; max-width: 100%; display: block; margin: 0 auto;">
+                            <p style="font-size: 0.85rem; font-style: italic; color: var(--text-light); margin-top: 1rem; margin-bottom: 0;">Building Composer Workflow</p>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="risk-box" style="background: rgba(0, 0, 0, 0.2); border-color: var(--white); margin-top: 3rem;">
-                <h3 style="color: var(--white);">⚠️ System Downside & Maintenance Constraints</h3>
-                <p style="color: var(--white);">The primary downside is odor and pest management if the carbon-to-nitrogen ratio is not perfectly maintained by the community in the composting sector. Furthermore, it requires strict behavioral compliance; if non-organic waste contaminates the composting chamber, the resulting fertilizer will be unusable for food crops.</p>
-            </div>
-        </section>
-
-        <!-- SECTION: SOLUTION 2 (RECYCLING TO URBAN FARMING) -->
-        <section id="solution-recycle" class="model-showcase" style="background: var(--gov-blue);">
-            <h2 style="font-size: 2.5rem; text-transform: uppercase; border-bottom: 4px solid var(--sustain-green);">Solution 2: Plastic to Urban Farming Infrastructure</h2>
-            <p style="font-size: 1.1rem; margin-bottom: 3rem; text-align: center; max-width: 800px; margin-left: auto; margin-right: auto;">To aggressively tackle Bangkok's landfill dependency and prevent ecological leakage, we propose a closed-loop dry waste recycling system that directly supports local food growth.</p>
-
-            <div class="grid-2">
-                <div>
-                    <h3>What It Does</h3>
-                    <p>This infrastructure physically prevents plastic from reaching open landfills or waterways. By sorting recyclables at the source, the hub recycles plastic into urban farming infrastructure. This drastically reduces the total mass sent to landfills and protects local habitats.</p>
+                <div class="risk-box">
+                    <h3>⚠️ System Downside & Maintenance Constraints</h3>
+                    <p>The primary downside is odor and pest management if the carbon-to-nitrogen ratio is not perfectly maintained by the community in the composting sector. Furthermore, it requires strict behavioral compliance; if non-organic waste contaminates the composting chamber, the resulting fertilizer will be unusable for food crops.</p>
                 </div>
-                <div>
-                    <h3>How It Works</h3>
-                    <p>The system utilizes standardized drop-off points. Once materials are collected, recycled plastics are reformed into structural elements for community gardens and rooftop farms. By pairing this with the compost generated in Solution 1, the infrastructure creates a closed loop used to grow affordable, nutritious food directly in the city.</p>
+            </section>
+
+            <!-- SOLUTION 2 (RECYCLING TO URBAN FARMING) -->
+            <section id="solution-recycle" class="model-showcase">
+                <h2>Solution 2: Plastic to Urban Farming Infrastructure</h2>
+                <p style="font-size: 1.05rem; margin-bottom: 2.5rem; text-align: center;">To aggressively tackle Bangkok's landfill dependency and prevent ecological leakage, we propose a closed-loop dry waste recycling system that directly supports local food growth.</p>
+
+                <div class="solution-inner-stack">
+                    <div>
+                        <h3>What It Does</h3>
+                        <p>This infrastructure physically prevents plastic from reaching open landfills or waterways. By sorting recyclables at the source, the hub recycles plastic into urban farming infrastructure. This drastically reduces the total mass sent to landfills and protects local habitats.</p>
+                    </div>
+                    <div>
+                        <h3>How It Works</h3>
+                        <p>The system utilizes standardized drop-off points. Once materials are collected, recycled plastics are reformed into structural elements for community gardens and rooftop farms. By pairing this with the compost generated in Solution 1, the infrastructure creates a closed loop used to grow affordable, nutritious food directly in the city.</p>
+                    </div>
                 </div>
-            </div>
 
-            <!-- EXTERNALITIES GRAPH ANALYSIS -->
-            <div style="background: var(--white); padding: 3rem; border-radius: 0; margin: 4rem 0; border: 1px solid #EAEAEA;">
-                <h3 style="text-align: center; margin-top: 0; font-family: var(--font-serif); font-size: 1.8rem; text-transform: none;">Economic Impact: Internalizing the Cost of Plastic</h3>
-                
-                <p style="font-size: 0.95rem; margin-bottom: 2rem; color: var(--text-light); text-align: center; max-width: 800px; margin-left: auto; margin-right: auto;">
-                    <strong style="color: var(--text-main);">The Market Failure:</strong> Currently, Bangkok suffers from a negative production externality where the social cost of plastic waste (habitat destruction) drastically exceeds the private cost, resulting in a large deadweight loss. By physically capturing waste and turning it into farming infrastructure, our closed-loop system internalizes this cost, shifting the market to a socially optimal equilibrium (<strong>Q<sub>opt</sub></strong>) and eliminating ecological damage.
-                </p>
-
-                <!-- SVG GRAPH CODE -->
-                <svg viewBox="0 0 600 420" style="width: 100%; max-width: 650px; display: block; margin: 0 auto; background: white;">
-                    <!-- Grid lines -->
-                    <line x1="50" y1="100" x2="550" y2="100" stroke="#f0f0f0" stroke-width="1"/>
-                    <line x1="50" y1="175" x2="550" y2="175" stroke="#f0f0f0" stroke-width="1"/>
-                    <line x1="50" y1="250" x2="550" y2="250" stroke="#f0f0f0" stroke-width="1"/>
+                <!-- EXTERNALITIES GRAPH ANALYSIS -->
+                <div class="graph-box">
+                    <h3 style="text-align: center; margin-top: 0; font-family: var(--font-serif); font-size: 1.4rem; text-transform: none;">Economic Impact: Internalizing the Cost of Plastic</h3>
                     
-                    <!-- Deadweight Loss Triangle (Red Shaded Area) -->
-                    <polygon points="200,200 275,250 275,162.5" fill="rgba(116, 23, 36, 0.1)" stroke="var(--brand-burgundy)" stroke-width="1" stroke-dasharray="4"/>
-                    <text x="235" y="210" font-size="12" fill="var(--brand-burgundy)" font-weight="bold">DWL</text>
-                    <text x="285" y="200" font-size="11" fill="var(--brand-burgundy)">(Habitat Loss)</text>
+                    <p style="font-size: 0.9rem; margin-bottom: 2rem; color: var(--text-light); text-align: left;">
+                        <strong style="color: var(--text-main);">The Market Failure:</strong> Currently, Bangkok suffers from a negative production externality where the social cost of plastic waste (habitat destruction) drastically exceeds the private cost, resulting in a large deadweight loss. By physically capturing waste and turning it into farming infrastructure, our closed-loop system internalizes this cost, shifting the market to a socially optimal equilibrium (<strong>Q<sub>opt</sub></strong>) and eliminating ecological damage.
+                    </p>
 
-                    <!-- Axes -->
-                    <line x1="50" y1="350" x2="550" y2="350" stroke="#333" stroke-width="1"/> <!-- X Axis -->
-                    <line x1="50" y1="350" x2="50" y2="20" stroke="#333" stroke-width="1"/>  <!-- Y Axis -->
-                    <text x="220" y="400" font-size="14" font-weight="400" font-family="Montserrat, sans-serif" fill="#333">Quantity of Plastic Waste</text>
-                    <text x="15" y="220" font-size="14" font-weight="400" font-family="Montserrat, sans-serif" fill="#333" transform="rotate(-90 15,220)">Costs / Benefits</text>
+                    <!-- SVG GRAPH CODE -->
+                    <svg viewBox="0 0 600 420" style="width: 100%; max-width: 650px; display: block; margin: 0 auto; background: white;">
+                        <!-- Grid lines -->
+                        <line x1="50" y1="100" x2="550" y2="100" stroke="#f0f0f0" stroke-width="1"/>
+                        <line x1="50" y1="175" x2="550" y2="175" stroke="#f0f0f0" stroke-width="1"/>
+                        <line x1="50" y1="250" x2="550" y2="250" stroke="#f0f0f0" stroke-width="1"/>
+                        
+                        <!-- Deadweight Loss Triangle (Red Shaded Area) -->
+                        <polygon points="200,200 275,250 275,162.5" fill="rgba(116, 23, 36, 0.1)" stroke="var(--brand-burgundy)" stroke-width="1" stroke-dasharray="4"/>
+                        <text x="235" y="210" font-size="12" fill="var(--brand-burgundy)" font-weight="bold">DWL</text>
+                        <text x="285" y="200" font-size="11" fill="var(--brand-burgundy)">(Habitat Loss)</text>
 
-                    <!-- Demand Curve (Marginal Private Benefit = Marginal Social Benefit) -->
-                    <line x1="100" y1="133.3" x2="350" y2="300" stroke="#8E9E82" stroke-width="2"/>
-                    <text x="360" y="305" font-size="12" font-weight="600" font-family="Montserrat, sans-serif" fill="#8E9E82">MPB = MSB</text>
+                        <!-- Axes -->
+                        <line x1="50" y1="350" x2="550" y2="350" stroke="#333" stroke-width="1"/> <!-- X Axis -->
+                        <line x1="50" y1="350" x2="50" y2="20" stroke="#333" stroke-width="1"/>  <!-- Y Axis -->
+                        <text x="220" y="400" font-size="14" font-weight="400" font-family="Montserrat, sans-serif" fill="#333">Quantity of Plastic Waste</text>
+                        <text x="15" y="220" font-size="14" font-weight="400" font-family="Montserrat, sans-serif" fill="#333" transform="rotate(-90 15,220)">Costs / Benefits</text>
 
-                    <!-- Supply Curve 1 (Marginal Private Cost - Current State) -->
-                    <line x1="100" y1="337.5" x2="400" y2="187.5" stroke="#999" stroke-width="2"/>
-                    <text x="410" y="190" font-size="12" font-weight="600" font-family="Montserrat, sans-serif" fill="#999">MPC (Private Cost)</text>
+                        <!-- Demand Curve (Marginal Private Benefit = Marginal Social Benefit) -->
+                        <line x1="100" y1="133.3" x2="350" y2="300" stroke="#8E9E82" stroke-width="2"/>
+                        <text x="360" y="305" font-size="12" font-weight="600" font-family="Montserrat, sans-serif" fill="#8E9E82">MPB = MSB</text>
 
-                    <!-- Supply Curve 2 (Marginal Social Cost - With Externalities) -->
-                    <line x1="100" y1="250" x2="400" y2="100" stroke="var(--brand-burgundy)" stroke-width="2"/>
-                    <text x="410" y="105" font-size="12" font-weight="600" font-family="Montserrat, sans-serif" fill="var(--brand-burgundy)">MSC (MPC + External Cost)</text>
+                        <!-- Supply Curve 1 (Marginal Private Cost - Current State) -->
+                        <line x1="100" y1="337.5" x2="400" y2="187.5" stroke="#999" stroke-width="2"/>
+                        <text x="410" y="190" font-size="12" font-weight="600" font-family="Montserrat, sans-serif" fill="#999">MPC (Private Cost)</text>
 
-                    <!-- Market Equilibrium Point (Qm) -->
-                    <circle cx="275" cy="250" r="5" fill="#999"/>
-                    <line x1="275" y1="250" x2="275" y2="350" stroke="#999" stroke-width="1" stroke-dasharray="5"/>
-                    <text x="265" y="370" font-size="14" font-weight="600" font-family="Montserrat, sans-serif" fill="#999">Qm</text>
+                        <!-- Supply Curve 2 (Marginal Social Cost - With Externalities) -->
+                        <line x1="100" y1="250" x2="400" y2="100" stroke="var(--brand-burgundy)" stroke-width="2"/>
+                        <text x="410" y="105" font-size="12" font-weight="600" font-family="Montserrat, sans-serif" fill="var(--brand-burgundy)">MSC (MPC + External Cost)</text>
 
-                    <!-- Socially Optimal Equilibrium Point (Qopt) -->
-                    <circle cx="200" cy="200" r="5" fill="var(--brand-burgundy)"/>
-                    <line x1="200" y1="200" x2="200" y2="350" stroke="var(--brand-burgundy)" stroke-width="1" stroke-dasharray="5"/>
-                    <text x="185" y="370" font-size="14" font-weight="600" font-family="Montserrat, sans-serif" fill="var(--brand-burgundy)">Qopt</text>
+                        <!-- Market Equilibrium Point (Qm) -->
+                        <circle cx="275" cy="250" r="5" fill="#999"/>
+                        <line x1="275" y1="250" x2="275" y2="350" stroke="#999" stroke-width="1" stroke-dasharray="5"/>
+                        <text x="265" y="370" font-size="14" font-weight="600" font-family="Montserrat, sans-serif" fill="#999">Qm</text>
 
-                    <!-- Arrow showing the shift -->
-                    <path d="M 260 340 L 220 340" stroke="#333" stroke-width="1.5" fill="none" marker-end="url(#arrowhead)"/>
-                    <defs>
-                        <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-                            <polygon points="0 0, 10 3.5, 0 7" fill="#333"/>
-                        </marker>
-                    </defs>
-                </svg>
-            </div>
+                        <!-- Socially Optimal Equilibrium Point (Qopt) -->
+                        <circle cx="200" cy="200" r="5" fill="var(--brand-burgundy)"/>
+                        <line x1="200" y1="200" x2="200" y2="350" stroke="var(--brand-burgundy)" stroke-width="1" stroke-dasharray="5"/>
+                        <text x="185" y="370" font-size="14" font-weight="600" font-family="Montserrat, sans-serif" fill="var(--brand-burgundy)">Qopt</text>
 
-            <div class="risk-box" style="background: rgba(0, 0, 0, 0.2); border-color: var(--alert-red); margin-top: 3rem;">
-                <h3 style="color: #FF8A8A;">⚠️ System Downside & Maintenance Constraints</h3>
-                <p style="color: var(--white);">The major constraint is the initial manufacturing cost of the sorting and processing units. Additionally, the system relies heavily on users pre-washing their plastics; heavily soiled containers can contaminate the batch, attract pests, and halt the production of the urban farming infrastructure.</p>
-            </div>
-        </section>
+                        <!-- Arrow showing the shift -->
+                        <path d="M 260 340 L 220 340" stroke="#333" stroke-width="1.5" fill="none" marker-end="url(#arrowhead)"/>
+                        <defs>
+                            <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                                <polygon points="0 0, 10 3.5, 0 7" fill="#333"/>
+                            </marker>
+                        </defs>
+                    </svg>
+                </div>
+
+                <div class="risk-box">
+                    <h3>⚠️ System Downside & Maintenance Constraints</h3>
+                    <p>The major constraint is the initial manufacturing cost of the sorting and processing units. Additionally, the system relies heavily on users pre-washing their plastics; heavily soiled containers can contaminate the batch, attract pests, and halt the production of the urban farming infrastructure.</p>
+                </div>
+            </section>
+
+        </div> <!-- END SIDE-BY-SIDE SOLUTIONS WRAPPER -->
 
         <!-- SECTION: REFERENCES -->
         <section id="references" class="references">
