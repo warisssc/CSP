@@ -1,4 +1,259 @@
-<!-- SECTION: SOLUTION 1 (COMPOSTING) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bangkok Vision 2051 | Strategic Waste & Biodiversity</title>
+    <style>
+        /* CSS Variables for Government/Official Theme */
+        :root {
+            --gov-blue: #0A3161;
+            --gov-light-blue: #1C4E80;
+            --sustain-green: #2E8B57;
+            --biodiversity-green: #1B5E20;
+            --alert-red: #B31942;
+            --bg-light: #F4F7F6;
+            --text-main: #333333;
+            --white: #FFFFFF;
+            --border-gray: #DDDDDD;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-light);
+        }
+
+        /* Top Official Banner */
+        .top-banner {
+            background-color: var(--gov-blue);
+            color: var(--white);
+            padding: 0.75rem 2rem;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .team-names {
+            font-weight: 600;
+            color: #E0E0E0;
+            letter-spacing: 0.5px;
+        }
+
+        /* Hero Section */
+        header {
+            background: linear-gradient(135deg, var(--gov-blue) 0%, var(--biodiversity-green) 100%);
+            color: var(--white);
+            padding: 4rem 2rem;
+            text-align: center;
+            border-bottom: 5px solid var(--sustain-green);
+        }
+
+        header h1 { font-size: 2.8rem; margin-bottom: 1rem; }
+        header p.subtitle { font-size: 1.2rem; font-weight: 300; max-width: 800px; margin: 0 auto; }
+
+        /* Navigation */
+        nav {
+            background-color: var(--white);
+            padding: 1rem 2rem;
+            border-bottom: 1px solid var(--border-gray);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        nav a {
+            color: var(--gov-blue);
+            text-decoration: none;
+            margin-right: 1.5rem;
+            font-weight: 600;
+        }
+        nav a:hover { color: var(--sustain-green); }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        /* Section Styling */
+        section {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            color: var(--gov-blue);
+            font-size: 2rem;
+            border-bottom: 3px solid var(--sustain-green);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+
+        h3 { color: var(--gov-light-blue); margin-top: 1.5rem; margin-bottom: 0.5rem; }
+
+        /* Grid Layouts for Data */
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+
+        /* Data Cards */
+        .data-card {
+            background: var(--bg-light);
+            border-left: 4px solid var(--gov-blue);
+            padding: 1.5rem;
+            border-radius: 4px;
+        }
+        .data-card.alert { border-left-color: var(--alert-red); }
+        .data-card.success { border-left-color: var(--biodiversity-green); }
+        .data-card h4 { margin-bottom: 0.5rem; font-size: 1.1rem; }
+
+        /* Model Presentation Box - REVISED FOR BIODIVERSITY */
+        .model-showcase {
+            background: var(--biodiversity-green);
+            color: var(--white);
+            padding: 3rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .model-showcase h2 { color: var(--white); border-bottom-color: var(--white); }
+        .model-showcase p { color: #E0E0E0; }
+        .model-image-placeholder {
+            background-color: rgba(255,255,255,0.1);
+            border: 2px dashed rgba(255,255,255,0.5);
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem 0;
+            border-radius: 8px;
+            color: var(--white);
+            font-style: italic;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Risk Assessment Box */
+        .risk-box {
+            border: 2px solid var(--alert-red);
+            background-color: #FFF0F0;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+        .risk-box h3 { color: var(--alert-red); margin-top: 0; display: flex; align-items: center; }
+        .risk-box h3::before { content: "⚠️"; margin-right: 10px; }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-main);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        /* Responsive */
+        @media(max-width: 768px) {
+            .grid-2, .grid-3 { grid-template-columns: 1fr; }
+            header h1 { font-size: 2rem; }
+            .top-banner { flex-direction: column; text-align: center; gap: 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-banner">
+        <span>2051 Bangkok Design Challenge — Group 24</span>
+        <span class="team-names">Teppo, Waris, Bella, Ying, Petra</span>
+    </div>
+
+    <header>
+        <h1>Strategic Waste Framework: Bangkok 2051</h1>
+        <p class="subtitle">Intercepting urban waste to restore natural habitats, rebuild aquatic biodiversity, and secure access to affordable, nutritious food.</p>
+    </header>
+
+    <nav>
+        <a href="#context">Current Crisis</a>
+        <a href="#forecast">2050 Forecast</a>
+        <a href="#doughnut">Doughnut Framework</a>
+        <a href="#solution-compost">Proposed Solutions</a>
+    </nav>
+
+    <div class="container">
+
+        <!-- SECTION: CURRENT CRISIS -->
+        <section id="context">
+            <h2>The Current State of Bangkok</h2>
+            <p>Bangkok generates over <strong>4 million tonnes of waste annually</strong>. Beyond the methane emitted from landfills, one of the most critical failures of our current system is ecological leakage. Plastic pollution and toxic runoff are actively destroying aquatic ecosystems, threatening local wildlife, and eventually reaching the ocean via the Chao Phraya River.</p>
+            
+            <div class="grid-3" style="margin-top: 2rem;">
+                <div class="data-card alert">
+                    <h4>Ecological Leakage</h4>
+                    <p>Thailand is identified globally as a major contributor to marine plastic. Plastic suffocates Bangkok's waterways, directly killing fish populations and destroying the habitats necessary for biodiversity to thrive.</p>
+                </div>
+                <div class="data-card alert">
+                    <h4>Food Chain Contamination</h4>
+                    <p>As plastics break down in the khlongs (canals) and the Chao Phraya, microplastics enter the local fish stocks and water supply, directly threatening Bangkok's access to safe, nutritious food.</p>
+                </div>
+                <div class="data-card">
+                    <h4>Social Gaps</h4>
+                    <p>Despite community river-cleaning projects, the sheer volume of waste overwhelms local efforts. We lack physical infrastructure that actively protects these habitats from daily urban runoff.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: FORECAST -->
+        <section id="forecast">
+            <h2>2050 Predictive Modeling</h2>
+            <p>Mathematical forecasting models predict a severe escalation of Bangkok's waste crisis if we maintain current habits.</p>
+            
+            <div class="grid-2" style="margin-top: 2rem;">
+                <div>
+                    <h3>Business-as-Usual Trajectory</h3>
+                    <ul>
+                        <li><strong>Volume Increase:</strong> Municipal solid waste will grow to <strong>39.61 million tons by 2050</strong>.</li>
+                        <li><strong>Habitat Destruction:</strong> Global plastic generation is expected to rise 55% by 2050. Without intervention, Bangkok's remaining aquatic habitats will be entirely displaced by synthetic waste.</li>
+                        <li><strong>Emission Surge:</strong> Urban waste emissions will reach 19.9 million tons of CO2 equivalent over the next 25 years.</li>
+                    </ul>
+                </div>
+                <div class="data-card success" style="display: flex; flex-direction: column; justify-content: center;">
+                    <h4>The Mitigation Target</h4>
+                    <p>By shifting from passive waste management to <strong>active ecological defense</strong>, we can stop waste at the source. Preventing plastic from entering waterways allows natural habitats to regenerate and drastically reduces the toxic load on our food chain.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: DOUGHNUT MODEL -->
+        <section id="doughnut">
+            <h2>The Doughnut Economic Framework</h2>
+            <p>Our physical solution is engineered specifically to operate within the Doughnut Model, bridging the gap between ecological preservation and human needs.</p>
+
+            <div class="grid-2" style="margin-top: 2rem;">
+                <div class="data-card success">
+                    <h4>MAIN FOCUS: Natural Habitats & Biodiversity</h4>
+                    <p>To stay within our Ecological Ceiling, we must halt the degradation of Bangkok's waterways. Our proposed models serve as physical barriers against pollution and restorative frameworks, preventing urban waste from leaking into sensitive aquatic and terrestrial habitats.</p>
+                </div>
+                <div class="data-card">
+                    <h4>Social Foundation: Access to Nutritious Food</h4>
+                    <p>By transforming organic waste into usable fertilizer and physically removing plastics from the water supply, we protect local agricultural yields and fisheries. Keeping microplastics out of the local food chain is essential to ensuring affordable, unpolluted, and nutritious food for Bangkok's residents.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: SOLUTION 1 (COMPOSTING) -->
         <section id="solution-compost" class="model-showcase" style="background: var(--biodiversity-green);">
             <h2 style="font-size: 2.5rem; text-transform: uppercase; border-bottom: 4px solid var(--white);">Solution 1: Decentralized Urban Composting Hubs</h2>
             <p style="font-size: 1.1rem; margin-bottom: 2rem;">To directly address the high volume of organic waste, Team 24 proposes an automated, community-scale composting model that transforms food waste into vital agricultural resources.</p>
@@ -57,3 +312,13 @@
                 <p style="color: var(--white);">The major constraint is the initial manufacturing and installation cost of the sorting and compaction units. Additionally, the system relies heavily on users pre-washing their plastics; heavily soiled food containers can contaminate the entire batch, attract pests, and ultimately reduce the economic value of the recycled materials.</p>
             </div>
         </section>
+
+    </div>
+
+    <footer>
+        <p><strong>2051 Bangkok Design Challenge | Team 24</strong></p>
+        <p style="font-size: 0.9rem; margin-top: 0.5rem; color: #aaa;">Teppo, Waris, Bella, Ying, Petra</p>
+    </footer>
+
+</body>
+</html>
