@@ -130,6 +130,20 @@
         }
         .model-showcase h2 { color: var(--white); border-bottom-color: var(--white); }
         .model-showcase p { color: #E0E0E0; }
+        
+        /* Flowchart Styling */
+        .flowchart {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 8px;
+            font-family: monospace;
+            white-space: pre;
+            overflow-x: auto;
+            color: var(--white);
+            text-align: center;
+            margin: 2rem 0;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
 
         /* References Section */
         .references {
@@ -192,7 +206,6 @@
 
     <div class="container">
 
-        <!-- SECTION: CURRENT CRISIS -->
         <section id="context">
             <h2>The Current State of Bangkok</h2>
             <p>Bangkok generates over 4 million tonnes of waste annually. Beyond the methane emitted from landfills, one of the most critical failures of our current system is ecological leakage. Plastic pollution and toxic runoff are actively destroying aquatic ecosystems, threatening local wildlife, and eventually reaching the ocean via the Chao Phraya River.</p>
@@ -213,7 +226,6 @@
             </div>
         </section>
 
-        <!-- SECTION: FORECAST -->
         <section id="forecast">
             <h2>2050 Predictive Modeling</h2>
             <p>Mathematical forecasting models predict a severe escalation of Bangkok's waste crisis if we maintain current habits.</p>
@@ -234,7 +246,6 @@
             </div>
         </section>
 
-        <!-- SECTION: DOUGHNUT MODEL -->
         <section id="doughnut">
             <h2>The Doughnut Economic Framework</h2>
             <p>Our physical solution is engineered specifically to operate within the Doughnut Model, bridging the gap between ecological preservation and human needs.</p>
@@ -251,7 +262,6 @@
             </div>
         </section>
 
-        <!-- SECTION: SOLUTION 1 (CIRCULAR HUB) -->
         <section id="solution-hub" class="model-showcase" style="background: var(--biodiversity-green);">
             <h2 style="font-size: 2.5rem; text-transform: uppercase; border-bottom: 4px solid var(--white);">Solution 1: Circular Food & Waste Hubs</h2>
             <p style="font-size: 1.1rem; margin-bottom: 2rem;">To create a sustainable waste-to-resource circular economy, Team 24 proposes creating Circular Food & Waste Hubs in Bangkok that collect waste directly from markets and households.</p>
@@ -264,7 +274,6 @@
                 <div>
                     <h3>How It Works</h3>
                     <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 8px; text-align: center; border: 1px dashed rgba(255,255,255,0.4);">
-                        <!-- This is where your friend's drawing will automatically load -->
                         <img src="image.jpg" alt="Building Composer Diagram" style="width: 100%; max-width: 100%; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.2);">
                         <p style="font-size: 0.85rem; font-style: italic; color: var(--white); margin-top: 0.5rem; margin-bottom: 0;">Building Composer Workflow</p>
                     </div>
@@ -277,7 +286,6 @@
             </div>
         </section>
 
-        <!-- SECTION: SOLUTION 2 (RECYCLING TO URBAN FARMING) -->
         <section id="solution-recycle" class="model-showcase" style="background: var(--gov-blue);">
             <h2 style="font-size: 2.5rem; text-transform: uppercase; border-bottom: 4px solid var(--sustain-green);">Solution 2: Plastic to Urban Farming Infrastructure</h2>
             <p style="font-size: 1.1rem; margin-bottom: 2rem;">To aggressively tackle Bangkok's landfill dependency and prevent ecological leakage, we propose a closed-loop dry waste recycling system that directly supports local food growth.</p>
@@ -293,55 +301,42 @@
                 </div>
             </div>
 
-            <!-- EXTERNALITIES GRAPH ANALYSIS -->
             <div style="background: var(--bg-light); padding: 2rem; border-radius: 8px; margin: 2rem 0; border: 1px solid var(--border-gray); box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
                 <h3 style="text-align: center; color: var(--gov-blue); margin-top: 0;">Economic Impact: Internalizing the Cost of Plastic</h3>
                 
                 <p style="font-size: 0.95rem; margin-bottom: 2rem; color: var(--text-main); text-align: center;">
-                    <strong>The Market Failure:</strong> Currently, Bangkok suffers from a negative production externality where the social cost of plastic waste (habitat destruction) drastically exceeds the private cost, resulting in a large deadweight loss. By physically capturing waste and turning it into farming infrastructure, our closed-loop system internalizes this cost, shifting the market to a socially optimal equilibrium ($Q_{opt}$) and eliminating ecological damage.
+                    <strong>The Market Failure:</strong> Currently, Bangkok suffers from a negative production externality where the social cost of plastic waste (habitat destruction) drastically exceeds the private cost, resulting in a large deadweight loss. By physically capturing waste and turning it into farming infrastructure, our closed-loop system internalizes this cost, shifting the market to a socially optimal equilibrium (<strong>Q<sub>opt</sub></strong>) and eliminating ecological damage.
                 </p>
 
-                <!-- SVG GRAPH CODE -->
                 <svg viewBox="0 0 600 420" style="width: 100%; max-width: 650px; display: block; margin: 0 auto; background: white; border-radius: 4px; border: 1px solid #ddd;">
-                    <!-- Grid lines -->
                     <line x1="50" y1="100" x2="550" y2="100" stroke="#f0f0f0" stroke-width="1"/>
                     <line x1="50" y1="175" x2="550" y2="175" stroke="#f0f0f0" stroke-width="1"/>
                     <line x1="50" y1="250" x2="550" y2="250" stroke="#f0f0f0" stroke-width="1"/>
                     
-                    <!-- Deadweight Loss Triangle (Red Shaded Area) -->
                     <polygon points="200,200 275,250 275,162.5" fill="rgba(179, 25, 66, 0.2)" stroke="#B31942" stroke-width="1" stroke-dasharray="4"/>
                     <text x="235" y="210" font-size="12" fill="#B31942" font-weight="bold">DWL</text>
                     <text x="285" y="200" font-size="11" fill="#B31942">(Habitat Loss)</text>
 
-                    <!-- Axes -->
-                    <line x1="50" y1="350" x2="550" y2="350" stroke="#333" stroke-width="2"/> <!-- X Axis -->
-                    <line x1="50" y1="350" x2="50" y2="20" stroke="#333" stroke-width="2"/>  <!-- Y Axis -->
-                    <text x="220" y="400" font-size="14" font-weight="bold" fill="#333">Quantity of Plastic Waste</text>
+                    <line x1="50" y1="350" x2="550" y2="350" stroke="#333" stroke-width="2"/> <line x1="50" y1="350" x2="50" y2="20" stroke="#333" stroke-width="2"/>  <text x="220" y="400" font-size="14" font-weight="bold" fill="#333">Quantity of Plastic Waste</text>
                     <text x="15" y="220" font-size="14" font-weight="bold" fill="#333" transform="rotate(-90 15,220)">Costs / Benefits</text>
 
-                    <!-- Demand Curve (Marginal Private Benefit = Marginal Social Benefit) -->
                     <line x1="100" y1="133.3" x2="350" y2="300" stroke="#2E8B57" stroke-width="3"/>
                     <text x="360" y="305" font-size="12" font-weight="bold" fill="#2E8B57">MPB = MSB</text>
 
-                    <!-- Supply Curve 1 (Marginal Private Cost - Current State) -->
                     <line x1="100" y1="337.5" x2="400" y2="187.5" stroke="#1C4E80" stroke-width="3"/>
                     <text x="410" y="190" font-size="12" font-weight="bold" fill="#1C4E80">MPC (Private Cost)</text>
 
-                    <!-- Supply Curve 2 (Marginal Social Cost - With Externalities) -->
                     <line x1="100" y1="250" x2="400" y2="100" stroke="#B31942" stroke-width="3"/>
                     <text x="410" y="105" font-size="12" font-weight="bold" fill="#B31942">MSC (MPC + External Cost)</text>
 
-                    <!-- Market Equilibrium Point (Qm) -->
                     <circle cx="275" cy="250" r="5" fill="#1C4E80"/>
                     <line x1="275" y1="250" x2="275" y2="350" stroke="#1C4E80" stroke-width="2" stroke-dasharray="5"/>
                     <text x="265" y="370" font-size="14" font-weight="bold" fill="#1C4E80">Qm</text>
 
-                    <!-- Socially Optimal Equilibrium Point (Qopt) -->
                     <circle cx="200" cy="200" r="5" fill="#B31942"/>
                     <line x1="200" y1="200" x2="200" y2="350" stroke="#B31942" stroke-width="2" stroke-dasharray="5"/>
                     <text x="185" y="370" font-size="14" font-weight="bold" fill="#B31942">Qopt</text>
 
-                    <!-- Arrow showing the shift -->
                     <path d="M 260 340 L 220 340" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
                     <defs>
                         <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
@@ -357,7 +352,6 @@
             </div>
         </section>
 
-        <!-- SECTION: REFERENCES -->
         <section id="references" class="references">
             <h3>References & Research Sources</h3>
             <p>The data and modeling presented in this proposal are supported by the following sources:</p>
